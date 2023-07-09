@@ -1,0 +1,138 @@
+
+.immg {
+
+    width: 104%;
+    height: 100%;
+    object-fit: unset;
+
+
+}
+
+.rr{
+    font-size: xx-large;
+    color: rgb(241, 240, 240);
+    margin-right: 30px;
+    margin-top: 20px;
+    padding: 10px;
+}
+#Subhead {
+
+    height: 500px;
+    position: relative;
+    background-image: url(image/949b8X6Msm-1.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+
+#Subhead h1 {
+    color: #fff;
+    /* font-size: 30px; */
+    line-height: 30px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-align: right;
+}
+
+#Subhead ul {
+    width: 100%;
+    list-style: none outside;
+    padding: 10px;
+
+}
+
+#Subhead ul li {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.7);
+    padding-left: inherit;
+}
+
+h2 {
+    
+    text-align: center;
+    background-color: #1352b1;
+padding: 30px;
+margin-left: 40%;
+    box-sizing: border-box;
+    font-size: 20px;
+    width: fit-content;
+    border-radius: 10px;
+    transition-duration: 3s;
+    
+
+
+}
+.imi  img   {
+    width: 40%;
+    height: 20%;
+    margin-left: 20px;
+    float:right;
+    /* transition-duration: 3s; */
+    margin-top: 70px;
+}
+
+form {
+    display: block;
+    background-color: rgba(255, 255, 255, 1);
+    border-color: #041733;
+    font-family: "Cairo", Arial, Tahoma, sans-serif;
+    float:left;
+    padding-right: 30px;
+    margin-top: 50px;
+    border-style:ridge;
+    padding-bottom: 10px;
+
+    padding: 20px;
+    border-radius: 10px;
+    margin: 30px;
+    margin-left: 50px;
+    transition-duration: 3s;
+
+
+
+}
+
+input {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    outline: none;
+    border-style: solid;
+    font-size: 20px;
+    max-width: 100%;
+    width: 300px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    border-radius: 0.5px;
+    border-width: 1px;
+    border-radius: 10px;
+
+
+
+
+}
+
+
+
+.ShowTheResult {
+    background-color: rgb(121, 186, 240);
+    padding: 10px;
+    width: -webkit-fill-available;
+
+}
+
+p {
+    font-size: 20px;
+    text-align: right;
+
+}
+.sub{
+    color: rgb(51, 153, 184);
+}
+nav {
+   
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }

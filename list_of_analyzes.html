@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/cc.css">
+    <link rel="stylesheet" href="CSS/nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+
+<body>
+
+
+    <header id="parent">
+                
+    
+       <nav id="navbar">
+            <h1 id="logo"> ALPHA <span>laboratory</span></h1>
+
+           <ul class="nav-links">
+         <li ><a href="laboratory.html" class="lin">الرئيسية</a></li>
+         <li  id="analysis"><a href="#" class="lin" >التحاليل</a>
+                <ul class="subList">
+                        <li><a href="the result.html" class="lin">نتيجة التحليل</li>
+                        <li><a href="list_of_analyzes.html" class="lin">قائمة التحاليل</li>
+                </ul>
+         </li>
+         <li ><a href="Branches.html" class="lin">فروعنا</a></li>
+         <li ><a href="#" class="lin">تواصل معنا</a></li>
+          </ul>
+       
+         <div class="burger">
+           <i class="fa-solid fa-bars" id="bars"></i>
+           </div>
+       </nav>
+       <div id="Subheader">
+        <div class="container" id="cl">
+            <h1>قائمة التحاليل</h1>
+            <ul>
+                <li>قائمة التحاليل</li>
+                <i class="fa-solid fa-angle-left" style="color: rgba(255, 255, 255, 0.5);padding-left: 10px;"></i>
+                <li><a href="laboratory.html">الرئيسية</a>
+                    <i class="fa-solid fa-house" style="color: rgba(255, 255, 255, 0.5);padding-left: 10px;"></i>
+                </li>
+            </ul>
+          </div>
+    </div>
+
+</header>
+
+   
+
+    <div>
+
+        <div class="section mcb-section   ">
+            <div class="column-mcb-column-one ">
+                <div class="question"  onclick="toggle_show_or_hide(1)">
+                    <div class="title" id="t1"><span class="num">1</span>
+                        <i class="fa-solid fa-plus" id="f1"></i>
+                        <i class="fa-solid fa-minus"></i>
+                        تحاليل الفحص الشامل
+
+                    </div>
+                </div>
+                <div class="answer" id="ans1">
+                    <img src="image/complete analysis.jpg" class="immg" alt="">
+                    <div class="img-body">
+                        <p>
+                            وتشمل مجموعة من التحاليل الطبية يتم عملها دوريا ( كل ستة اشهر ) وهى كما يلى :
+                            <br><br>
+                            - وظائف الكبد SGOT , SGPT <br>
+                            - وظائف الكلى Urea , Creatinine <br>
+                            - صورة دم CBC <br>
+                            - سكر صائم FBS <br>
+                            - سرعة ترسيب ESR <br>
+                            - املاح النقرس Uric Acid <br>
+                            - تحليل بول Urine Analysis <br>
+                            - دهنيات الدم كاملة Lipid profile <br>
+                        </p>
+                        <a href="Analysis_information.html#d1" class="Show"> عرض المزيد </a>
+                    </div>
+                </div>
+
+                <div class=" question" onclick="toggle_show_or_hide(2)">
+                    <div class="title" id="t2"><span class="num">2</span>
+                        <i class="fa-solid fa-plus" id="f2"></i>
+                        <i class="fa-solid fa-minus"></i>
+                        تحاليل مرض السكر
+                    </div>
+                </div>
+                <div class="answer" id="ans2">
+                    <img src="image/Sugar analysis.jpg" class="immg" alt="">
+                    <div class="img-body">
+                        <p>
+                            - سكر صائم FBS <br>
+                            - سكر بعد الاكل 2hrPP <br>
+                            - الهيموجلوبين السكرى HBA1C <br>
+                            - منحنى السكر Glucose curve <br>
+                            - الميكروالبيومينوريا Microalbuminuria <br>
+                        </p>
+                        <a href="Analysis_information.html#d2" class="Show"> عرض المزيد </a>
+                    </div>
+                </div>
+
+
+                <div class="question" onclick="toggle_show_or_hide(3)">
+                    <div class="title" id="t3"><span class="num">3</span>
+                        <i class="fa-solid fa-plus" id="f3"></i>
+                        <i class="fa-solid fa-minus"></i>
+                        تحاليل وظائف الكبد
+                    </div>
+                </div>
+                <div class="answer" id="ans3">
+                    <img src="image/Liver function analysis.jpg" class="immg" alt="">
+                    <div class="img-body">
+                        <p>
+
+                            Bilirubin (Total + Direct) + <br>
+                            ALT (SGPT) + AST (SGOT) + <br>
+                            PT +Albumin + GGT + <br>
+                            Total Protein + Alkaline Phosphatase
+                        </p>
+                        <a href="Analysis_information.html#d3" class="Show"> عرض المزيد </a>
+                    </div>
+                </div>
+                <div class="question" onclick="toggle_show_or_hide(4)">
+                    <div class="title" id="t4"><span class="num">4</span>
+                        <i class="fa-solid fa-plus" id="f4"></i>
+                        <i class="fa-solid fa-minus"></i>
+                        تحاليل وظائف الكلى
+                    </div>
+                </div>
+                <div class="answer" id="ans4">
+                    <img src="image/Renal function analysis.jpg" class="immg" alt="">
+                    <div class="img-body">
+                        <p>
+
+                            Creatinine + Urea + Uric acid + Urine analysis + Sodium and Potassium
+                        </p>
+                        <a href="Analysis_information.html#d4" class="Show"> عرض المزيد </a>
+                    </div>
+                </div>
+                <div class="question" onclick="toggle_show_or_hide(5)">
+                    <div class="title" id="t5"><span class="num">5</span>
+                        <i class="fa-solid fa-plus" id="f5"></i>
+                        <i class="fa-solid fa-minus"></i>
+                        تحاليل وظائف القلب
+                    </div>
+                </div>
+                <div class="answer" id="ans5">
+                    <img src="image/Cardiac function analysis.jpg" class="immg" alt="">
+                    <div class="img-body">
+                        <p>
+                            إنزيم كرياتين فوسفو كاينيز (Creatine phosphokinase)<br>
+                            إنزيم أسبرتات أمينو ترانسفيراز (Aspartate Amino Transferase – AST)
+                            <br>تروبونين (Troponin)
+                            <br>5- ميوجلوبين (Myoglobin)
+                        </p>
+                        <a href="Analysis_information.html#d5" class="Show"> عرض المزيد </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column-mcb-column-two">
+
+                <div class="question" onclick="toggle_show_or_hide(6)">
+                    <div class="title" id="t6"><span class="num">6</span>
+                        <i class="fa-solid fa-plus" id="f6"></i>
+                        <i class="fa-solid fa-minus"></i>
+                        تحاليل املاح ومعادن جسم الانسان
+                    </div>
+                </div>
+                <div class="answer" id="ans6">
+                    <img src="image/electrolyte.jpg" class="immg" alt="">
+                    <div class="img-body">
+                        <p>
+                            الصوديوم Sodium – Na+
+                            <br>البوتاسيوم Potassium K+
+                            <br>الكلوريد Chloride – CL.
+                            <br>الكالسيوم Calcium Ca++
+                            <br>الفوسفور غير العضوي Inorganic Phosphorus.
+                            <br>الماغنسيوم Magnesium – Mg++
+                        </p>
+                        <a href="Analysis_information.html#d6" class="Show"> عرض المزيد </a>
+                    </div>
+                </div>
+                <div class=" question" onclick="toggle_show_or_hide(7)">
+                    <div class="title" id="t7"><span class="num">7</span>
+                        <i class="fa-solid fa-plus" id="f7"></i>
+                        <i class="fa-solid fa-minus"></i>
+                        دهنيات الدم
+                    </div>
+                </div>
+                <div class="answer" id="ans7">
+                    <img src="image/Blood lipids.jpg" class="immg" alt="">
+                    <div class="img-body">
+                        <p>
+                            كوليستيرول + الدهون الثلاثية + كوليستيرول منخفض الكثافة + كوليستيرول مرتفع الكثافة
+                            Total Cholesterol + Triglycerides + HDL + LDL
+                        </p>
+                        <a href="Analysis_information.html#d7" class="Show">عرض المزيد </a>
+                    </div>
+                </div>
+
+
+
+                <div class="question" onclick="toggle_show_or_hide(8)">
+                    <div class="title" id="t8"><span class="num">8</span>
+                        <i class="fa-solid fa-plus" id="f8"></i>
+                        <i class="fa-solid fa-minus"></i>
+                        تحاليل سيولة الدم
+                    </div>
+                </div>
+                <div class="answer" id="ans8">
+                    <img src="image/Blood fluidity.jpg" class="immg" alt="">
+                    <div class="img-body">
+                        <p>
+                            - سرعة النزف Bleeding time (BT) <br>
+                            - سرعة التجلط Clotting time (CT) <br>
+                            - سيولة الدم Prothrombin time (PT) <br>
+                            - تخسر الدم Partial Thromboplastin Time (PTT) <br>
+                            - عدد الصفائح Platelets count <br>
+                            - مستوى الفيبرينوجين Fibrinogen Level <br>
+                            - مستوى Fibrinogen Degradation Products <br>
+                        </p>
+                        <a href="Analysis_information.html#d8" class="Show"> عرض المزيد</a>
+                    </div>
+                </div>
+                <div class="question" onclick="toggle_show_or_hide(9)">
+                    <div class="title" id="t9"><span class="num">9</span>
+                        <i class="fa-solid fa-plus" id="f9"></i>
+                        <i class="fa-solid fa-minus"></i>
+                        تحاليل الباثولوجي
+                    </div>
+                </div>
+                <div class="answer" id="ans9">
+                    <img src="image/Pathological analysis.jpg" class="immg" alt="">
+                    <div class="img-body">
+                        <p>
+                            -عينات مأخوذة من انسجة بالجسم وتحتاج الى فحصها للتأكد من عدم وجود اورام بها(Biopsy) <br>
+                            - سوائل مسحوبة من الجسم وتحتاج الى فحصها للتأكـــد من عـــــدم وجــــود أورام بهـــا
+                            (Cytology) <br>
+                            - شرائح مرسلة للفحص من عنق الرحم (PAPsmear) <br>
+                            - شـــرائح مرسلــة وقــد تــم فــحصهــا سابقـــا مـــن طبيب آخــــر ومطلـــــوب رأى
+                            المعمـــل
+                            فيهـــــا(Consultation) <br>
+                            - شرائــــح مرســـلة غير مصبوغـة أو بلوكات شمــع ومطلـــوب صبغات مناعــية لخلايــا
+                            الاورام
+                            (Immunohistochemistry) <br>
+                        </p>
+                        <a href="Analysis_information.html#d9" class="Show"> عرض المزيد </a>
+                    </div>
+                </div>
+                <div class="question" onclick="toggle_show_or_hide(10)">
+                    <div class="title" id="t10"><span class="num">10</span>
+                        <i class="fa-solid fa-plus" id="f10"></i>
+                        <i class="fa-solid fa-minus"></i>
+                        تحاليل الوراثة
+                    </div>
+                </div>
+                <div class="answer" id="ans10">
+                    <img src="image/Genetics analysis.jpg" class="immg" alt="">
+                    <div class="img-body">
+                        <p>
+                            كروموزومات الدم Blood Chromosomes <br>
+                            كروموزومات الانسجة Tissue Karyotyping <br>
+                            احماض امينية بالدم Aminogram in plasma <br>
+                            احماض امينية بالبول Aminogram in urine <br>
+                            فيلادلفيا كروموسوم Philadilphia chromosome <br>
+                        </p>
+                        <a href="Analysis_information.html#d10" class="Show"> عرض المزيد </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <footer id="ft">
+        <div class="footer-col">
+            <h4>
+                prodacts
+            </h4>
+            <ul class="foot">
+                <li class="footli"><a href="#">tempes</a></li>
+                <li class="footli"><a href="#">advertising</a></li>
+                <li class="footli"><a href="#">talent</a></li>
+            </ul>
+
+        </div>
+        <div class="footer-col">
+            <h4>
+                networke
+            </h4>
+            <ul class="foot">
+                <li class="footli"><a href="#">technologe</a></li>
+                <li class="footli"><a href="#">science</a></li>
+                <li class="footli"><a href="#">business</a></li>
+            </ul>
+
+        </div>
+        <div class="footer-col">
+            <h4>
+                company
+            </h4>
+            <ul class="foot">
+                <li class="footli"><a href="#">about</a></li>
+                <li class="footli"><a href="#">legal</a></li>
+                <li class="footli"><a href="#">contact us</a></li>
+            </ul>
+
+        </div>
+        <div class="footer-col">
+            <h4>
+                follow us
+            </h4>
+            <div class="links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+
+        </div>
+        <div class="p">
+            <p>© 2023 معامل ألفا للتحاليل الطبية. جميع الحقوق محفوظه</p>
+        </div>
+
+    </footer>
+
+
+    <script src="java-script/jj.js"></script>
+</body>
+
+</html>

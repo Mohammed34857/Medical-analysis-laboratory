@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="CSS/nav.css">
+    <link rel="stylesheet" href="css/Branches.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+        <header id="head">
+      <nav id="navbar">
+        <h1 id="logo"> ALPHA <span>laboratory</span></h1>
+
+     <ul class="nav-links">
+        <li ><a href="laboratory.html" class="lin">الرئيسية</a></li>
+        <li  id="analysis"><a href="#" class="lin" >التحاليل</a>
+               <ul class="subList">
+                       <li><a href="the result.html" class="lin">نتيجة التحليل</li>
+                       <li><a href="list_of_analyzes.html" class="lin">قائمة التحاليل</li>
+               </ul>
+       </li>
+        <li ><a href="Branches.html" class="lin">فروعنا</a></li>
+        <li ><a href="#" class="lin">تواصل معنا</a></li>
+        <li>
+                <label for="checkbox">
+                       <input id="checkbox" type="checkbox"  onchange="toggleNightMode()">
+                       <span class="check"></span> 
+                </label>
+        </li>
+      </ul>
+      
+      <div class="burger">
+          <i class="fa-solid fa-bars" id="bars"></i>
+      </div>
+             </nav>
+              <div id="loginWindow" class="login">            
+        <div class="login_form">
+            <button id="close_bt"><i class="fa-solid fa-close"></i></button>
+        <h2 id="loginText">تسجيل الدخول</h2>
+        <form action="">
+        <div class="input_group"><i class="fa-solid fa-user"></i>
+            <input 
+            type="text"
+            placeholder="اسم المستخدم"
+            class="input_text"
+            autocomplete="off"
+            >
+        </div>
+        <div class="input_group"><i class="fa-solid fa-unlock"></i>
+            <input 
+            type="password"
+            placeholder="كلمة المرور"
+            class="input_text"
+            autocomplete="off"
+            >
+        </div>
+        <button class="button_group" id="login_butt" type="submit">تسجيل</button>
+        <div class="fotter">
+            <a href=""> هل نسيت كلمة المرور ?</a>
+            <a href=""> انشاء حساب </a>
+        </div>
+       </form>
+    </div>
+
+              </div>
+        </header> 
+        
+     <section id="ss" class="s">
+
+        
+     </section>
+  
+  <section id="card" class="cards">
+
+          <div class="info">
+            <div class="card_lab" >
+             <img src="image/مخبركروة.jpg" alt="">
+            </div>
+            <button id="loginButton" onclick="login_Button()">تسجيل الدخول</button>
+          </div>
+          
+        <div>  
+              <div class="card_lab">
+                  <!-- <h1>  الموقع </h1> -->
+                   <p><b>مخبر د.ريم كرزه</b><br>عنوان المخبر: الإسماعيلية - مقابل مشفى فريْشو</p>
+                  <div class="icon_arr">
+                    <i class="fa fa-map-marker fa-2xl"></i>
+                </div>
+              </div>
+               <div class="card_lab">
+                  <h1 style="padding-bottom: 20px; margin-bottom: 10px; "> الهاتف <br> 0212262227</h1>
+                  <div class="icon_arr" >
+                    <i class=" fa fa-phone fa-2xl" ></i>
+                </div>
+               </div>
+        </div>
+       <div class="info">
+        <div class="card_lab" id="analys">
+
+          <ul><h2>التحاليل المتوفرة بالمخبر:</h2> 
+             
+                <li>  تحاليل الفحص الشامل</li>
+                <li> تحاليل مرض السكر</li>
+                <li>تحاليل وظائف الكبد</li>
+                <li>تحاليل وظائف الكلى</li>
+                <li> تحاليل املاح و معادن</li>
+        </ul>
+          <div class="icon_arr" id="icon1">
+            <i class=" fa fa-bars fa-2xl" ></i>
+        </div>
+        </div>
+       </div>
+  </section>
+
+    
+
+
+
+<footer>
+    <div class="footer-col">
+            <h4>
+                    prodacts
+            </h4>
+            <ul class="foot">
+                    <li class="footli"><a href="#">tempes</a></li>
+                    <li class="footli"><a href="#">advertising</a></li>
+                    <li class="footli"><a href="#">talent</a></li>
+            </ul>
+
+    </div>
+    <div class="footer-col">
+            <h4>
+                    networke
+            </h4>
+            <ul class="foot">
+                    <li class="footli"><a href="#">technologe</a></li>
+                    <li class="footli"><a href="#">science</a></li>
+                    <li class="footli"><a href="#">business</a></li>
+            </ul>
+
+    </div>
+    <div class="footer-col">
+            <h4>
+                    company
+            </h4>
+            <ul class="foot">
+                    <li class="footli"><a href="#">about</a></li>
+                    <li class="footli"><a href="#">legal</a></li>
+                    <li class="footli"><a href="#">contact us</a></li>
+            </ul>
+
+    </div>
+    <div class="footer-col">
+            <h4>
+                    follow us
+            </h4>
+          <div class="links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    </div>
+   <div class="p"> <p>© 2023 معامل ألفا للتحاليل الطبية. جميع الحقوق محفوظه</p></div>
+
+
+
+</footer>
+<script src="java-script/jj.js"></script>
+
+</body>
+</html>
