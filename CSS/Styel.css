@@ -7,15 +7,13 @@
 }
 .content{
     position: absolute;
-    background-image: url('image/hedar.jpg');
+    background-image: url('image/header1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 60%;
-    width: 60%;
-    left: 20%;
-    top: 20%;
-    transition-duration: 2s;
-    
+    height: 100%;
+    width: 100%;
+    transition:2s;
+    transform: scale(1);
 }
 .contentt{
     position: absolute;

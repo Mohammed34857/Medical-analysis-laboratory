@@ -113,11 +113,7 @@ window.onload = function() {
         cont.style.filter = " brightness(70%)";
     },1500);  
 
-    cont.style.width = "100%"; 
-    cont.style.height = "100%";
-    cont.style.top = "0";
-    cont.style.left = "0";
-    
+    cont.style.transform = "scale(1.3)";   
 }
 
 
