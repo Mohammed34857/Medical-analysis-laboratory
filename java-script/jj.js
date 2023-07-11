@@ -113,7 +113,7 @@ window.onload = function() {
         cont.style.filter = " brightness(70%)";
     },1500);  
 
-    cont.style.transform = "scale(1.3)";   
+    cont.style.transform = "scale(1)";   
 }
 
 
