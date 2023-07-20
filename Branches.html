@@ -65,7 +65,8 @@
                     </div>
                     </div>
                   <div class="Lab_content" id="lab1">
-                        <a href="#" class="lin"> مخبر د.ريم كرزه </a>
+                
+                        <!-- <a href="#" class="lin"> مخبر د.ريم كرزه </a>
                         <a href="#" class="lin"> مخبر خليل عثمان </a>
                         <a href="#" class="lin"> مخبر د. منى عنجْريني </a>
                         <a href="#" class="lin"> المخبر العلمي </a>
@@ -75,7 +76,8 @@
                         <a href="#" class="lin"> مخبر د. نريمان الناصر </a>
                         <a href="#" class="lin">  مخبر د. سامر عزيزي </a>
                         <a href="#" class="lin"> مخبر الكمال للتحاليل الطبية </a>
-                   </div>
+                   -->
+                </div> 
             </div>
             
 
@@ -88,7 +90,7 @@
                     </div>
                 </div>
                 <div class="Lab_content" id="lab2">
-                        <a href="lab.html" > مخبر القطرنجي </a>
+                        <!-- <a href="lab.html" > مخبر القطرنجي </a>
                         <a href="lab.html" > مخبر د. غسان منصور  </a>
                         <a href="lab.html" > مخبر تسابحجي </a>
                         <a href="lab.html" > مخبر المرادي </a>
@@ -97,15 +99,13 @@
                         <a href="lab.html" > مخبر الواحدي </a>
                         <a href="lab.html" > مخبر سابا </a>
                         <a href="lab.html" > مخبر الشعلان </a>
-                        <a href="lab.html" > مخبر رياض شلهوب </a>
+                        <a href="lab.html" > مخبر رياض شلهوب </a> -->
                 </div>
             </div>
 
           
     </section>
     
-
-
 <footer>
     <div class="footer-col">
             <h4>
@@ -160,5 +160,38 @@
 </footer>
 
 <script src="java-script/jj.js"></script>
-    
+<script> 
+      
+        window.onload = function fetchItemsAndDisplay() {
+          fetch('https://testbyad.adaptable.app/laboratory')
+            .then(response => response.json()) 
+            .then(data => {
+              const aleppo = data.filter(lab => lab.address === "حلب");
+              const damascus = data.filter(lab => lab.address === "دمشق");
+              const dataContainer1 = document.getElementById('lab1');
+              const dataContainer2 = document.getElementById('lab2');
+              aleppo.forEach(lab => {
+                const listItem = document.createElement('a');
+                listItem.textContent = lab.name_manager; 
+                listItem.href = `lab.html?id=${lab._id}`;
+                dataContainer1.appendChild(listItem);
+                
+              });
+              damascus.forEach(lab => {
+                const listItem = document.createElement('a');
+                listItem.textContent = lab.name_manager; 
+                listItem.href = `lab.html?id=${lab._id}`;
+                dataContainer2.appendChild(listItem);
+               
+              });
+
+     
+        })
+            .catch(error => {
+              console.error('حدث خطأ أثناء جلب البيانات من الAPI', error);
+            });
+        };
+       
+       
+      </script> 
 </body>

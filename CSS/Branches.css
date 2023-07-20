@@ -79,7 +79,7 @@ hr{
     color: #3a6cf4;
 }
 .Lab_content{
-    height: 700px;
+    height: auto;
     width: 300px;
     box-shadow: 0 5px 25px rgba( 1 , 1 , 1 , 15%);
     background-color: whitesmoke;
@@ -148,6 +148,9 @@ margin-top: 200px;
     color: #3a6cf4;
     padding: 10px;
     margin: 10px;
+}
+#content_loca{
+  display: flex;
 }
 .icon_arr{
     position: absolute;
