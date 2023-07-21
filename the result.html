@@ -57,18 +57,21 @@
                 <div class="imi"><img src="image/h22-min.jpg" alt=""></div>
 
                 <h2 class="rr">نتائج تحاليل الأفراد</h2>
-                <form action method="post" name="get-ruslet">
+
+                <form id="get_result" action method="post" name="get-ruslet">
                         <input type="hidden" name="Etqan-form-count-num" value="1">
+
                         <p> ":كود العميل"</p>
+                        <input id="user-code" name="user-code" value type="text">
+                        
+                        <p> ":اسم العميل"</p>
+                        <input id="username" name="username" value type="text"> 
 
-                        <input id="etqan-user-code" name="etqan-user-code" value type="text">
                         <p> " :كلمة المرور"</p>
+                        <input id="password" name="password"  value type="password">
 
-                        <input name="etqan-user-password" id="etqan-user-password" value type="password">
-
-                        <!-- <button type="submit" class="ShowTheResult">  إظهار النتيجة </button> -->
-                        <a href="Analysis_result.html" class="ShowTheResult" style="text-decoration:none;margin-left: 100px;">إظهار النتيجة</a>
-                </form>
+                        <button type="button" onclick="submitForm()" class="ShowTheResult"> إظهار النتيجة  </button>
+                        </form>
 
         </div>
 
@@ -127,6 +130,34 @@
 
         </footer>
         <script src="java-script/jj.js"></script>
+
+        <script>
+       function submitForm(){
+           const userCode=document.getElementById("user-code").value; 
+           const username=document.getElementById("username").value;  
+           const password=document.getElementById("password").value;
+           fetch("https://testbyad.adaptable.app/patient")
+           .then(response => response.json())
+           .then(data => {
+                var matchedId= null;
+            for (var i = 0; i < data.length; i++) {
+                if (data[i]._id === userCode && data[i].name === username && data[i].password === password) {
+                    matcheId = data[i]._id;
+                    break;
+                }
+            }
+            if(matcheId!==null){
+                window.location.href = "Analysis_result.html?id="+ matcheId;
+            } else {
+                alert("البيانات غير متطابقة!");
+            }
+           })
+           .catch(error => {
+           console.error("حدث خطأ أثناء التواصل مع الـ API:", error);
+           }) 
+        }
+        
+        </script>
 </body>
 
 </html>
