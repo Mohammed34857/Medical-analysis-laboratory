@@ -136,12 +136,12 @@
            const userCode=document.getElementById("user-code").value; 
            const username=document.getElementById("username").value;  
            const password=document.getElementById("password").value;
-           fetch("https://testbyad.adaptable.app/patient")
+           fetch("https://testbyad.adaptable.app/analysis-demand")
            .then(response => response.json())
            .then(data => {
                 var matchedId= null;
             for (var i = 0; i < data.length; i++) {
-                if (data[i]._id === userCode && data[i].name === username && data[i].password === password) {
+                if (data[i]._id === userCode) {
                     matcheId = data[i]._id;
                     break;
                 }

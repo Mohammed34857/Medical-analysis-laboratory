@@ -50,8 +50,8 @@
         <th>Reference Range</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
+    <tbody id="analysis_body">
+      <!-- <tr>
         <td><b>Blood Pressure</b></td>
       </tr>
       <tr>
@@ -74,7 +74,7 @@
         <td>2.5 mIU/L</td>
         <td>0.4-4.0 mIU/L</td>
       </tr>
-      <tr><tr>
+      <tr><tr> -->
      
     </tbody>
   </table>
@@ -85,15 +85,80 @@
 <script> 
 window.onload = function showItemInfo() {
     const urlParams = new URLSearchParams(window.location.search);
-    const patientId = urlParams.get('id');
+    const analysis_demand_id= urlParams.get('id');
     const doctor = document.getElementById("Doctor");
     const patient = document.getElementById("Patient");
     const date = document.getElementById("date");
-  fetch(`https://testbyad.adaptable.app/patient/${patientId}`)  
+  fetch(`https://testbyad.adaptable.app/analysis-demand/${analysis_demand_id}`)  
   .then(response => response.json())
   .then(data => {
-  patient.textContent=data.name;
- 
+    date.textContent = data.date_analays;
+    const LabAnaPartana_id = data.id_LabAnaPartana;
+    const Medical_referral_id = data.id_MedicalReferral;    
+  fetch(`https://testbyad.adaptable.app/medical-referral/${Medical_referral_id}`)
+  .then(response => response.json())
+  .then(data => {
+   const doctor_id = data.id_Doctor;
+   const patient_id = data.id_Patient;
+   fetch(`https://testbyad.adaptable.app/patient/${patient_id}`)
+   .then(response => response.json())
+  .then(data => {
+    patient.textContent = data.name;
+   fetch(`https://testbyad.adaptable.app/doctor/${doctor_id}`)
+   .then(response => response.json())
+  .then(data => {
+    doctor.textContent = data.name;
+      })
+     })
+   })
+  })
+  fetch(`https://testbyad.adaptable.app/lab-ana-partana/${LabAnaPartana_id}`)
+  .then(response => response.json())
+  .then(data =>{
+    const AnaPartanalysis_id = data.id_AnaPartanalysis;
+    fetch(`https://testbyad.adaptable.app/ana-partanalysis/${AnaPartanalysis_id}`)
+  .then(response => response.json())
+  .then(data =>{
+    const partial_analysis_id = data.id_partial_analysis;
+    const analysis_id = data.id_anaylsis;
+    fetch(`https://testbyad.adaptable.app/ana-partanalysis`)
+  .then(response => response.json())
+  .then(data =>{
+   const analysis = data.filter( ana => ana.id_anaylsis === analysis_id);
+   const anal = data.id_anaylsis;
+   const analysis_body = document.getElementById('analysis_body');
+   fetch(`https://testbyad.adaptable.app/analysis/${anal}`)
+    .then(response => response.json())
+    .then(data =>{
+    const Item = document.createElement('tr');
+    analysis_body.appendChild(Item);
+    const Item1 = document.createElement('td');
+    Item.appendChild(Item1);
+    const Item2 = document.createElement('b');
+    Item2.textContent = data.name_analysis;
+    Item1.appendChild(Item2);
+   });
+   analysis.forEach(ana => {
+    const partial_analysis_id = ana.id_partial_analysis;
+    fetch(`https://testbyad.adaptable.app/partial-analysis/${partial_analysis_id}`)
+  .then(response => response.json())
+  .then(data =>{
+    const Item = document.createElement('tr');
+    analysis_body.appendChild(Item);
+    const Item1 = document.createElement('td');
+    Item1.textContent = ana.name_part_ana;
+    Item1.appendChild(Item1);
+    const Item2 = document.createElement('td');
+    Item2.textContent = ana.normal_level;
+    Item2.appendChild(Item2);
+    const Item3 = document.createElement('td');
+    Item3.textContent = ana.biopsy;
+    Item3.appendChild(Item3);
+   }) 
+  });
+
+  })
+  })
  })
 }
 </script>
