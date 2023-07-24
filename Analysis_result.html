@@ -33,9 +33,9 @@
           <h2>ALEPPO,SYRIA</h2>
          </div>
         <div id="container">
-           <p>Doctor : <strong id="Doctor">محمد فادي</strong></p>
-           <p>Patient : <strong id="Patient">أحمد خان</strong></p>
-           <p>date : <strong id="date">26 يونيو 2023</strong></p>
+           <p>Doctor : <strong id="Doctor"> </strong></p>
+           <p>Patient : <strong id="Patient"> </strong></p>
+           <p>date : <strong id="date"> </strong></p>
         </div>
        
     </div>
@@ -50,31 +50,7 @@
         <th>Reference Range</th>
       </tr>
     </thead>
-    <tbody id="analysis_body">
-      <!-- <tr>
-        <td><b>Blood Pressure</b></td>
-      </tr>
-      <tr>
-        <td>Blood Sugar (Fasting)</td>
-        <td>95 mg/dL</td>
-        <td>70-100 mg/dL</td>
-      </tr>
-      <tr>
-        <td>Cholesterol</td>
-        <td>180 mg/dL</td>
-        <td>&lt;200 mg/dL</td>
-      </tr>
-      <tr>
-        <td>Complete Blood Count (CBC)</td>
-        <td >Normal</td>
-        <td>N/A</td>
-      </tr>
-      <tr>
-        <td>Thyroid Stimulating Hormone (TSH)</td>
-        <td>2.5 mIU/L</td>
-        <td>0.4-4.0 mIU/L</td>
-      </tr>
-      <tr><tr> -->
+    <tbody id="table">
      
     </tbody>
   </table>
@@ -112,6 +88,11 @@ window.onload = function showItemInfo() {
      })
    })
   })
+  const table = document.getElementById('table');
+  fetch(`https://testbyad.adaptable.app/analysis-demand/${analysis_demand_id}`)  
+  .then(response => response.json())
+  .then(data => {
+    const LabAnaPartana_id = data.id_LabAnaPartana;
   fetch(`https://testbyad.adaptable.app/lab-ana-partana/${LabAnaPartana_id}`)
   .then(response => response.json())
   .then(data =>{
@@ -121,45 +102,54 @@ window.onload = function showItemInfo() {
   .then(data =>{
     const partial_analysis_id = data.id_partial_analysis;
     const analysis_id = data.id_anaylsis;
-    fetch(`https://testbyad.adaptable.app/ana-partanalysis`)
-  .then(response => response.json())
-  .then(data =>{
-   const analysis = data.filter( ana => ana.id_anaylsis === analysis_id);
-   const anal = data.id_anaylsis;
-   const analysis_body = document.getElementById('analysis_body');
-   fetch(`https://testbyad.adaptable.app/analysis/${anal}`)
+   
+   fetch(`https://testbyad.adaptable.app/analysis/${analysis_id}`)
     .then(response => response.json())
     .then(data =>{
     const Item = document.createElement('tr');
-    analysis_body.appendChild(Item);
+    table.appendChild(Item);
+
     const Item1 = document.createElement('td');
+    const idCellText = document.createTextNode(data.name_analysis);
+    Item1.style.fontWeight = "bold";
+    Item1.style.textDecoration = "underline";
+    Item1.appendChild(idCellText);
     Item.appendChild(Item1);
-    const Item2 = document.createElement('b');
-    Item2.textContent = data.name_analysis;
-    Item1.appendChild(Item2);
-   });
+
+    fetch(`https://testbyad.adaptable.app/ana-partanalysis`)
+  .then(response => response.json())
+  .then(data =>{
+   const analysis = data.filter( data => data.id_anaylsis === analysis_id);
+ 
    analysis.forEach(ana => {
     const partial_analysis_id = ana.id_partial_analysis;
     fetch(`https://testbyad.adaptable.app/partial-analysis/${partial_analysis_id}`)
   .then(response => response.json())
   .then(data =>{
     const Item = document.createElement('tr');
-    analysis_body.appendChild(Item);
+    table.appendChild(Item);
     const Item1 = document.createElement('td');
-    Item1.textContent = ana.name_part_ana;
-    Item1.appendChild(Item1);
+    const idCellText1 = document.createTextNode(data.name_part_ana);
+    Item1.appendChild(idCellText1);
+    Item.appendChild(Item1);
     const Item2 = document.createElement('td');
-    Item2.textContent = ana.normal_level;
-    Item2.appendChild(Item2);
+    const idCellText2 = document.createTextNode(data.normal_level);
+    Item2.appendChild(idCellText2);
+    Item.appendChild(Item2);
     const Item3 = document.createElement('td');
-    Item3.textContent = ana.biopsy;
-    Item3.appendChild(Item3);
+    const idCellText3 = document.createTextNode(data.biopsy);
+    Item3.appendChild(idCellText3);
+    Item.appendChild(Item3);
    }) 
   });
-
+  
+   })
   })
   })
  })
+})
+
+
 }
 </script>
 
