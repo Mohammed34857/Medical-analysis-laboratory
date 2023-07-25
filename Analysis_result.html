@@ -121,7 +121,17 @@ window.onload = function showItemInfo() {
   .then(data =>{
    const analysis = data.filter( data => data.id_anaylsis === analysis_id);
  
-   analysis.forEach(ana => {
+   fetch(`https://testbyad.adaptable.app/analysis-demand/${analysis_demand_id}`)  
+  .then(response => response.json())
+  .then(data => {
+    const MedicalReferral_id = data.id_MedicalReferral;
+    fetch(`https://testbyad.adaptable.app/analysis-demand`)  
+  .then(response => response.json())
+  .then(data => {
+    const result = data.filter( data => data.id_MedicalReferral === MedicalReferral_id);
+
+    for (let i = 0; i < analysis.length; i++) {
+    const ana = analysis[i];
     const partial_analysis_id = ana.id_partial_analysis;
     fetch(`https://testbyad.adaptable.app/partial-analysis/${partial_analysis_id}`)
   .then(response => response.json())
@@ -132,17 +142,21 @@ window.onload = function showItemInfo() {
     const idCellText1 = document.createTextNode(data.name_part_ana);
     Item1.appendChild(idCellText1);
     Item.appendChild(Item1);
+
+    const res = result[i];
     const Item2 = document.createElement('td');
-    const idCellText2 = document.createTextNode(data.normal_level);
+    const idCellText2 = document.createTextNode(res.result);
     Item2.appendChild(idCellText2);
     Item.appendChild(Item2);
+
     const Item3 = document.createElement('td');
-    const idCellText3 = document.createTextNode(data.biopsy);
+    const idCellText3 = document.createTextNode(data.normal_level);
     Item3.appendChild(idCellText3);
     Item.appendChild(Item3);
-   }) 
-  });
-  
+     }) 
+     }
+    })
+   })
    })
   })
   })
