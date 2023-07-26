@@ -42,7 +42,6 @@ function toggleNightMode() {
 
 
 
-function printPage() { window.print();}
 
 
 let login_Button = function () {
