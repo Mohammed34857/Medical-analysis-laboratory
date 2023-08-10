@@ -139,22 +139,37 @@
            fetch("https://testbyad.adaptable.app/analysis-demand")
            .then(response => response.json())
            .then(data => {
-                var matchedId= null;
+              
+                var matchedId = null;
             for (var i = 0; i < data.length; i++) {
-                if (data[i]._id === userCode) {
+                if (data[i]._id === userCode ) {
                     matcheId = data[i]._id;
                     break;
                 }
             }
-            if(matcheId!==null){
+            fetch(`https://testbyad.adaptable.app/analysis-demand/${matcheId}`)
+              .then(response => response.json())
+              .then(data => {
+              const id_medical_referral = data.id_MedicalReferral;  
+            fetch(`https://testbyad.adaptable.app/medical-referral/${id_medical_referral}`)
+              .then(response => response.json())
+              .then(data => {
+               const id_id_Patient = data.id_Patient;
+               fetch(`https://testbyad.adaptable.app/patient/${id_id_Patient}`)
+              .then(response => response.json())
+              .then(data => {
+            if(matcheId !== null && username === data.name && password === data.password){
                 window.location.href = "Analysis_result.html?id="+ matcheId;
             } else {
                 alert("البيانات غير متطابقة!");
             }
-           })
+            })
+           }) 
+          })
+         })
            .catch(error => {
            console.error("حدث خطأ أثناء التواصل مع الـ API:", error);
-           }) 
+        })
         }
         
         </script>
