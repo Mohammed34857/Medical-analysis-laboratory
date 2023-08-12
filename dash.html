@@ -53,25 +53,25 @@
                     <div class="login_form">
                         <button id="close_bt"><i class="fa-solid fa-close"></i></button>
                     <form action="">
-                    <div class="input_group"><i class="fa-solid fa-user"></i>
+                    <div class="input_group"><i class="fa-solid fa-pen"></i>
                         <input 
                         type="text"
-                        placeholder="القيمة القديمة"
+                        placeholder="الاسم القديم"
                         class="input_text"
                         autocomplete="off"
                         id="oldname1"
                         >
                     </div>
-                    <div class="input_group"><i class="fa-solid fa-unlock"></i>
+                    <div class="input_group"><i class="fa-solid fa-pen"></i>
                         <input 
                         type="password"
-                        placeholder=" القيمة الجديدة"
+                        placeholder=" الاسم الجديد"
                         class="input_text"
                         autocomplete="off"
                         id="newname1"
                         >
                     </div>
-                    <button class="button_group" id="login_butt" type="submit">حفظ</button>
+                    <button class="button_group" id="login_butt" >حفظ</button>
                    </form>
                 </div>
                 </div>
@@ -88,19 +88,19 @@
                 <div class="login_form">
                     <button id="close_bt"><i class="fa-solid fa-close"></i></button>
                 <form action="">
-                <div class="input_group"><i class="fa-solid fa-user"></i>
+                <div class="input_group"><i class="fa-solid fa-pen"></i>
                     <input 
                     type="text"
-                    placeholder="القيمة القديمة"
+                    placeholder="الاسم القديم"
                     class="input_text"
                     autocomplete="off"
                     id="oldname2"
                     >
                 </div>
-                <div class="input_group"><i class="fa-solid fa-unlock"></i>
+                <div class="input_group"><i class="fa-solid fa-pen"></i>
                     <input 
                     type="password"
-                    placeholder="القيمة الجديدة"
+                    placeholder="الاسم الجديد"
                     class="input_text"
                     autocomplete="off"
                     id="newname2"
@@ -123,19 +123,19 @@
                     <div class="login_form">
                         <button id="close_bt"><i class="fa-solid fa-close"></i></button>
                     <form action="">
-                    <div class="input_group"><i class="fa-solid fa-user"></i>
+                    <div class="input_group"><i class="fa-solid fa-pen"></i>
                         <input 
                         type="text"
-                        placeholder="القيمة القديمة"
+                        placeholder="الرقم القديم"
                         class="input_text"
                         autocomplete="off"
                         id="oldname3"
                         >
                     </div>
-                    <div class="input_group"><i class="fa-solid fa-unlock"></i>
+                    <div class="input_group"><i class="fa-solid fa-pen"></i>
                         <input 
                         type="password"
-                        placeholder="القيمة الجديدة"
+                        placeholder="الرقم الجديد"
                         class="input_text"
                         autocomplete="off"
                         id="newname3"
@@ -160,7 +160,7 @@
                 <div class="login_form">
                     <button id="close_bt"><i class="fa-solid fa-close"></i></button>
                 <form action="">
-                <div class="input_group"><i class="fa-solid fa-user"></i>
+                <div class="input_group"><i class="fa-solid fa-pen"></i>
                     <input 
                     type="text"
                     placeholder="id"
@@ -168,7 +168,7 @@
                     autocomplete="off"
                     >
                 </div>
-                <div class="input_group"><i class="fa-solid fa-unlock"></i>
+                <div class="input_group"><i class="fa-solid fa-pen"></i>
                     <input 
                     type="password"
                     placeholder="كلمة المرور"
@@ -193,7 +193,7 @@
                 <div class="login_form">
                     <button id="close_bt"><i class="fa-solid fa-close"></i></button>
                 <form action="">
-                <div class="input_group"><i class="fa-solid fa-user"></i>
+                <div class="input_group"><i class="fa-solid fa-pen"></i>
                     <input 
                     type="text"
                     placeholder="id"
@@ -201,7 +201,7 @@
                     autocomplete="off"
                     >
                 </div>
-                <div class="input_group"><i class="fa-solid fa-unlock"></i>
+                <div class="input_group"><i class="fa-solid fa-pen"></i>
                     <input 
                     type="password"
                     placeholder="كلمة المرور"
@@ -291,40 +291,8 @@
                 }
             }        
          })
-         const MongoClient = require('mongodb').MongoClient;
-         const url = '';
-         const dbName = '';
-         const collectionName = 'laboratory';
+}
 
-        MongoClient.connect(url, { useUnifiedTopology: true }, (err, client) => {
-        if (err) {
-        console.error('فشل الاتصال بقاعدة البيانات:', err);
-        return;
-         }
-       console.log('تم الاتصال بنجاح');
-       const db = client.db(dbName);
-       const collection = db.collection(collectionName);
-
- 
-       collection.updateOne(
-       { name_laboratory: oldName }, 
-       { $set: { name_laboratory: newName } },
-       (err, result) => {
-      if (err) {
-        console.error('حدث خطأ أثناء التحديث:', err);
-      } else {
-        if (result.modifiedCount > 0) {
-          console.log('تم تحديث القيمة بنجاح');
-        } else {
-          console.log('لم يتم العثور على القيمة القديمة');
-        }
-      }
-      client.close();
-    }
-  );
-});
-    
-        }
     </script>
 </body>
 </html>
