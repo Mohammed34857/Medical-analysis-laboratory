@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title > Dashbooard  </title>
-    <link rel="stylesheet" href="CSS/dash.css"/>
+    <title> Dashbooard </title>
+    <link rel="stylesheet" href="CSS/dash.css" />
     <link rel="stylesheet" href="CSS/nav.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-   
-    <header id="head">
-        
-        <nav id="navbar">
-           <h1 id="logo"> ALPHA <span>laboratory</span></h1>
-             <ul class="nav-links">
-                 <li ><a href="laboratory.html" class="lin">الرئيسية</a></li>
-                 <li  id="analysis"><a href="#" class="lin" >التحاليل</a>
-                  <ul class="subList">
-                      <li><a href="the result.html" class="lin">نتيجة التحليل</li>
-                      <li><a href="list_of_analyzes.html" class="lin">قائمة التحاليل</li>
-                   </ul>
-                  </li>
-                <li ><a href="Branches.html" class="lin">فروعنا</a></li>
-                <li ><a href="#" class="lin">تواصل معنا</a></li>
-              </ul>
-     
-               <div class="burger">
-                 <i class="fa-solid fa-bars" id="bars"></i>
-               </div>
-         </nav>
-         
-       </header> 
 
-       <section class="main">
+<body>
+
+    <header id="head">
+
+        <nav id="navbar">
+            <h1 id="logo"> ALPHA <span>laboratory</span></h1>
+            <ul class="nav-links">
+                <li><a href="laboratory.html" class="lin">الرئيسية</a></li>
+                <li id="analysis"><a href="#" class="lin">التحاليل</a>
+                    <ul class="subList">
+                        <li><a href="the result.html" class="lin">نتيجة التحليل</li>
+                        <li><a href="list_of_analyzes.html" class="lin">قائمة التحاليل</li>
+                    </ul>
+                </li>
+                <li><a href="Branches.html" class="lin">فروعنا</a></li>
+                <li><a href="#" class="lin">تواصل معنا</a></li>
+            </ul>
+
+            <div class="burger">
+                <i class="fa-solid fa-bars" id="bars"></i>
+            </div>
+        </nav>
+
+    </header>
+
+    <section class="main">
 
         <div class="main-top">
-            
+
             <i class="fas fa-user-cog"></i>
         </div>
 
@@ -47,252 +49,225 @@
                     <i class="fas fa-lapt"></i>
                     <h3> تعديل اسم المخبر </h3>
                     <!-- <p></p> -->
-                    <button onclick="toggle_show(1)">  .... </button>
+                    <button onclick="toggle_show(1)"> .... </button>
                 </div>
-                <div id="loginWindow1" class="login">            
+                <div id="loginWindow1" class="login">
                     <div class="login_form">
                         <button id="close_bt"><i class="fa-solid fa-close"></i></button>
-                    <form action="">
-                    <div class="input_group"><i class="fa-solid fa-pen"></i>
-                        <input 
-                        type="text"
-                        placeholder="الاسم القديم"
-                        class="input_text"
-                        autocomplete="off"
-                        id="oldname1"
-                        >
+                        <form action="">
+                            <div class="input_group"><i class="fa-solid fa-pen"></i>
+                                <input type="text" placeholder="الاسم القديم" class="input_text" autocomplete="off"
+                                    id="oldname1">
+                            </div>
+                            <div class="input_group"><i class="fa-solid fa-pen"></i>
+                                <input type="password" placeholder=" الاسم الجديد" class="input_text" autocomplete="off"
+                                    id="newname1">
+                            </div>
+                            <button class="button_group" id="login_butt">حفظ</button>
+                        </form>
                     </div>
-                    <div class="input_group"><i class="fa-solid fa-pen"></i>
-                        <input 
-                        type="password"
-                        placeholder=" الاسم الجديد"
-                        class="input_text"
-                        autocomplete="off"
-                        id="newname1"
-                        >
-                    </div>
-                    <button class="button_group" id="login_butt" >حفظ</button>
-                   </form>
-                </div>
                 </div>
             </div>
-            
-           <div class="main-card">
-            <div class="card">
-                <i class="fas fa-lapt"></i>
-                <h3> تعديل اسم المدير  </h3>
-                <!-- <p>  </p> -->
-                <button onclick="toggle_show(2)">......</button>
-            </div>
-            <div id="loginWindow2" class="login">            
-                <div class="login_form">
-                    <button id="close_bt"><i class="fa-solid fa-close"></i></button>
-                <form action="">
-                <div class="input_group"><i class="fa-solid fa-pen"></i>
-                    <input 
-                    type="text"
-                    placeholder="الاسم القديم"
-                    class="input_text"
-                    autocomplete="off"
-                    id="oldname2"
-                    >
-                </div>
-                <div class="input_group"><i class="fa-solid fa-pen"></i>
-                    <input 
-                    type="password"
-                    placeholder="الاسم الجديد"
-                    class="input_text"
-                    autocomplete="off"
-                    id="newname2"
-                    >
-                </div>
-                <button class="button_group" id="login_butt" type="submit">حفظ</button>
-               </form>
-            </div>
-            </div>
-         </div> 
 
-         <div class="main-card">
-            <div class="card">
-                <i class="fas fa-lapt"></i>
-                <h3> تعديل رقم الهاتف</h3>
-                <!-- <p></p> -->
-                <button onclick="toggle_show(3)">......</button>
+            <div class="main-card">
+                <div class="card">
+                    <i class="fas fa-lapt"></i>
+                    <h3> تعديل اسم المدير </h3>
+                    <!-- <p>  </p> -->
+                    <button onclick="toggle_show(2)">......</button>
                 </div>
-                <div id="loginWindow3" class="login">            
+                <div id="loginWindow2" class="login">
                     <div class="login_form">
                         <button id="close_bt"><i class="fa-solid fa-close"></i></button>
-                    <form action="">
-                    <div class="input_group"><i class="fa-solid fa-pen"></i>
-                        <input 
-                        type="text"
-                        placeholder="الرقم القديم"
-                        class="input_text"
-                        autocomplete="off"
-                        id="oldname3"
-                        >
+                        <form action="">
+                            <div class="input_group"><i class="fa-solid fa-pen"></i>
+                                <input type="text" placeholder="الاسم القديم" class="input_text" autocomplete="off"
+                                    id="IDE">
+                            </div>
+                            <div class="input_group"><i class="fa-solid fa-pen"></i>
+                                <input type="text" placeholder="الاسم الجديد" class="input_text" autocomplete="off"
+                                    id="newname2">
+                            </div>
+                            <button class="button_group" id="login_butt" type="submit">حفظ</button>
+                        </form>
                     </div>
-                    <div class="input_group"><i class="fa-solid fa-pen"></i>
-                        <input 
-                        type="password"
-                        placeholder="الرقم الجديد"
-                        class="input_text"
-                        autocomplete="off"
-                        id="newname3"
-                        >
-                    </div>
-                    <button class="button_group" id="login_butt" type="submit">حفظ</button>
-                   </form>
                 </div>
+            </div>
+
+            <div class="main-card">
+                <div class="card">
+                    <i class="fas fa-lapt"></i>
+                    <h3> تعديل رقم الهاتف</h3>
+                    <!-- <p></p> -->
+                    <button onclick="toggle_show(3)">......</button>
+                </div>
+                <div id="loginWindow3" class="login">
+                    <div class="login_form">
+                        <button id="close_bt"><i class="fa-solid fa-close"></i></button>
+                        <form action="">
+                            <div class="input_group"><i class="fa-solid fa-pen"></i>
+                                <input type="text" placeholder="الرقم القديم" class="input_text" autocomplete="off"
+                                    id="oldname3">
+                            </div>
+                            <div class="input_group"><i class="fa-solid fa-pen"></i>
+                                <input type="password" placeholder="الرقم الجديد" class="input_text" autocomplete="off"
+                                    id="newname3">
+                            </div>
+                            <button class="button_group" id="login_butt" type="submit">حفظ</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
 
-          <div class="main-manger1">
+        <div class="main-manger1">
             <div class="main-card">
-            <div class="card">
-                <i class="fas fa-lapt"></i>
-                <h3> طلب مواد </h3>
-                <!-- <p></p> -->
-                <button onclick="toggle_show(4)">........</button>
-            </div>
-            <div id="loginWindow4" class="login">            
-                <div class="login_form">
-                    <button id="close_bt"><i class="fa-solid fa-close"></i></button>
-                <form action="">
-                <div class="input_group"><i class="fa-solid fa-pen"></i>
-                    <input 
-                    type="text"
-                    placeholder="id"
-                    class="input_text"
-                    autocomplete="off"
-                    >
+                <div class="card">
+                    <i class="fas fa-lapt"></i>
+                    <h3> طلب مواد </h3>
+                    <!-- <p></p> -->
+                    <button onclick="toggle_show(4)">........</button>
                 </div>
-                <div class="input_group"><i class="fa-solid fa-pen"></i>
-                    <input 
-                    type="password"
-                    placeholder="كلمة المرور"
-                    class="input_text"
-                    autocomplete="off"
-                    >
+                <div id="loginWindow4" class="login">
+                    <div class="login_form">
+                        <button id="close_bt"><i class="fa-solid fa-close"></i></button>
+                        <form action="">
+                            <div class="input_group"><i class="fa-solid fa-pen"></i>
+                                <input type="text" placeholder="id" class="input_text" autocomplete="off">
+                            </div>
+                            <div class="input_group"><i class="fa-solid fa-pen"></i>
+                                <input type="password" placeholder="كلمة المرور" class="input_text" autocomplete="off">
+                            </div>
+                            <button class="button_group" id="login_butt" type="submit">حفظ</button>
+                        </form>
+                    </div>
                 </div>
-                <button class="button_group" id="login_butt" type="submit">حفظ</button>
-               </form>
             </div>
-            </div>
-          </div>    
-            
-          <div class="main-card">
-            <div class="card">
-                <i class="fas fa-lapt"></i>
-                <h3> إضافة تحليل جديد</h3>
-                <!-- <p></p> -->
-                <button onclick="toggle_show(5)">........</button>
-            </div>
-            <div id="loginWindow5" class="login">            
-                <div class="login_form">
-                    <button id="close_bt"><i class="fa-solid fa-close"></i></button>
-                <form action="">
-                <div class="input_group"><i class="fa-solid fa-pen"></i>
-                    <input 
-                    type="text"
-                    placeholder="id"
-                    class="input_text"
-                    autocomplete="off"
-                    >
+
+            <div id="insertana" class="main-card">
+                <div class="card">
+                    <i class="fas fa-lapt"></i>
+                    <h3> إضافة تحليل جديد</h3>
+                    <!-- <p></p> -->
+                    <button onclick="toggle_show(5)">........</button>
                 </div>
-                <div class="input_group"><i class="fa-solid fa-pen"></i>
-                    <input 
-                    type="password"
-                    placeholder="كلمة المرور"
-                    class="input_text"
-                    autocomplete="off"
-                    >
+
+                <div id="loginWindow5" class="login">
+                    <div class="login_form">
+                        <button id="close_bt"><i class="fa-solid fa-close"></i></button>
+                        <form action="">
+                            <div class="input_group"><i class="fa-solid fa-pen"></i>
+                                <input type="text" placeholder="id" class="input_text" autocomplete="off">
+                            </div>
+                            <div class="input_group"><i class="fa-solid fa-pen"></i>
+                                <input id="body" type="text" placeholder=" اسم التحليل " class="input_text"
+                                    autocomplete="off">
+                            </div>
+                            <button class="button_group" id="login_butt" type="submit">حفظ</button>
+                        </form>
+                    </div>
                 </div>
-                <button class="button_group" id="login_butt" type="submit">حفظ</button>
-               </form>
             </div>
-            </div>
-         </div>
 
         </div>
     </section>
 
     <footer>
         <div class="footer-col">
-                <h4>
-                        prodacts
-                </h4>
-                <ul class="foot">
-                        <li class="footli"><a href="#">tempes</a></li>
-                        <li class="footli"><a href="#">advertising</a></li>
-                        <li class="footli"><a href="#">talent</a></li>
-                </ul>
-    
+            <h4>
+                prodacts
+            </h4>
+            <ul class="foot">
+                <li class="footli"><a href="#">tempes</a></li>
+                <li class="footli"><a href="#">advertising</a></li>
+                <li class="footli"><a href="#">talent</a></li>
+            </ul>
+
         </div>
         <div class="footer-col">
-                <h4>
-                        networke
-                </h4>
-                <ul class="foot">
-                        <li class="footli"><a href="#">technologe</a></li>
-                        <li class="footli"><a href="#">science</a></li>
-                        <li class="footli"><a href="#">business</a></li>
-                </ul>
-    
+            <h4>
+                networke
+            </h4>
+            <ul class="foot">
+                <li class="footli"><a href="#">technologe</a></li>
+                <li class="footli"><a href="#">science</a></li>
+                <li class="footli"><a href="#">business</a></li>
+            </ul>
+
         </div>
         <div class="footer-col">
-                <h4>
-                        company
-                </h4>
-                <ul class="foot">
-                        <li class="footli"><a href="#">about</a></li>
-                        <li class="footli"><a href="#">legal</a></li>
-                        <li class="footli"><a href="#">contact us</a></li>
-                </ul>
-    
+            <h4>
+                company
+            </h4>
+            <ul class="foot">
+                <li class="footli"><a href="#">about</a></li>
+                <li class="footli"><a href="#">legal</a></li>
+                <li class="footli"><a href="#">contact us</a></li>
+            </ul>
+
         </div>
         <div class="footer-col">
-                <h4>
-                        follow us
-                </h4>
-              <div class="links">
+            <h4>
+                follow us
+            </h4>
+            <div class="links">
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
         </div>
-    
+        <div class="p">
+            <p>© 2023 معامل ألفا للتحاليل الطبية. جميع الحقوق محفوظه</p>
         </div>
-       <div class="p"> <p>© 2023 معامل ألفا للتحاليل الطبية. جميع الحقوق محفوظه</p></div>
-    
-    
-    
+
+
+
     </footer>
     <script>
         function toggle_show(index) {
-    var content = document.getElementById("loginWindow" + index);
-    content.classList.toggle("show_content");    
-}
+            var content = document.getElementById("loginWindow" + index);
+            content.classList.toggle("show_content");
+        }
 
-         function update_name_lab(){
-           const oldname=document.getElementById("oldname1").value;  
-           const newname=document.getElementById("newname1").value;
-           fetch("https://testbyad.adaptable.app/laboratory")
-           .then(response => response.json())
-           .then(data => {
-              
-                var old = null;
-            for (var i = 0; i < data.length; i++) {
-                if (data[i].name_laboratory === oldname ) {
-                    old = data[i].name_laboratory;
-                    break;
-                }
-            }        
-         })
-}
+        function update_name_lab() {
+            const oldname = document.getElementById("oldname1").value;
+            const newname = document.getElementById("newname1").value;
+            fetch("https://testbyad.adaptable.app/laboratory")
+                .then(response => response.json())
+                .then(data => {
+
+                    var old = null;
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].name_laboratory === oldname) {
+                            old = data[i].name_laboratory;
+                            break;
+                        }
+                    }
+                })
+            }
+        //update namemanager
+        const idkk = document.getElementById("IDE").value;
+        const name = document.getElementById("newname2").value;
+
+        fetch(`https://testbyad.adaptable.app/laboratory/64753a141777cd7414793f0a`, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                name_manager: name
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+            }
+        })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+
+
+      
 
     </script>
 </body>
+
 </html>
