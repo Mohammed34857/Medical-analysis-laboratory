@@ -1,0 +1,250 @@
+body{
+    background: rgb(200, 222, 241);
+   }
+   .main{
+       position: relative;
+       width: 100%;
+       min-height: 200vh;
+       height: auto;
+   
+   }
+   .main-top
+   {
+       display: flex;
+       width: 100%;
+       padding-top: 100px;
+       text-align: center
+   }
+   .main-top i{
+       position: absolute;
+       right: 0;
+       margin: 10px 30px;
+       color: aqua;
+       cursor: pointer;
+   }
+   .main-manger{
+       display: flex;
+       justify-content: space-around;
+       margin-top: 50px;
+   }
+   .main-manger1{
+       display: flex;
+       justify-content: space-evenly;
+       margin-top: 10px;
+   }
+   .main-manger h1{
+       text-align: center;
+       right: 50;
+   }
+   .main-manger1 h1{
+       text-align: center;
+       right: 50;
+   }
+   .main-manger .card
+   {
+       margin: 30px;
+       background: #fff;
+       text-align: center;
+       border-radius: 20px;
+       padding: 10px;
+       box-shadow: 0 20px 35px rgb(0, 0, 0, 0.1);
+   }
+   .main-manger1 .card
+   {
+       margin: 30px;
+       background: #fff;
+       text-align: center;
+       border-radius: 20px;
+       padding: 10px;
+       box-shadow: 0 20px 35px rgb(0, 0, 0, 0.1);
+   }
+   .main-manger .card h3{
+       margin: 10 px ;
+       text-transform: capitalize;
+   }
+   .main-manger1 .card h3{
+       margin: 10 px ;
+       text-transform: capitalize;
+   }
+   .main-manger .card p{
+       font-size: 12px;
+   }
+   .main-manger .card button{
+       background: #f9fafa;
+       color: rgb(166, 219, 243);
+       padding: 7px 15 px;
+       border-radius: 10 px; 
+       margin-top: 15px;
+       cursor: pointer;
+   }
+   .main-manger1 .card button{
+       background: #f9fafa;
+       color: rgb(166, 219, 243);
+       padding: 7px 15 px;
+       border-radius: 10 px; 
+       margin-top: 15px;
+       cursor: pointer;
+   }
+   .main-manger .card button:hover{
+       background: #a5c4e7;
+   }
+   .main-manger1 .card button:hover{
+       background: #a5c4e7;
+   }
+   .main-manger .card i{
+   
+       font-size: 22px;
+       padding: 10 px;
+   }
+   .main-manger1 .card i{
+   
+       font-size: 22px;
+       padding: 10 px;
+   }
+
+
+   .main-card{
+    width: 33%;
+   }
+
+
+/* login */
+
+#loginButton{
+    position: absolute;
+    padding: 10px;
+    cursor: pointer;
+    top: 85px;
+    left: 30px;
+    width: 50%;
+    height: 10%;
+    border: none;
+    border-radius: 20px;
+    transition: 0.5s;
+    
+}
+  #loginButton:hover{
+    transform: scale(1.1);
+    background-color:var(--bgColor-2);
+    color:  #0c1022;
+    box-shadow: 0 0 10px #093c95;
+}
+ 
+  .login{
+      position: relative;
+      width: 320px;
+      height: 300px;
+     margin-left: 40px;
+      background-color: #040717;
+      border-radius:50px 5px ;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+  }
+  .login::before{
+    position: absolute;
+    width: 170%;
+    height: 170%;
+    content: "";
+    background-image: conic-gradient(#040717,#cc00ff,#040717,#00ccff);
+    animation: rotate-border 6s linear infinite;
+    animation-delay: -3s;
+  }
+  .login_form{
+    position: absolute;
+    background-color: #0c1022;
+    border-radius: 50px 5px;
+    inset: 5px;
+    padding: 50px 40px;
+    z-index: 10;
+    color: #00ccff;
+  }
+  /* @keyframes  rotate-border{
+    0%{
+      transform: rotate(0deg);
+      }
+    100%{
+      transform: rotate(360deg);
+  }
+  } */
+
+  /* #loginWindow1 ,#loginWindow2 ,#loginWindow3,#loginWindow4,#loginWindow5{
+    display: none;
+    position: relative;
+  } */
+  .show_content{
+   display: block;
+  }
+
+  #close_bt{
+      position: absolute;
+      width: 50px;
+      height: 0px;
+      right: 15px;
+      top: 15px;  
+      border: none;
+      background-color: #0c1022;
+      color: #00ccff;
+      cursor: pointer;
+      font-size: xx-large;
+  }
+  #close_bt:hover{
+    transform: scale(1.3);
+  }
+  #loginText{
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .input_group{
+    margin-top: 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .input_text{
+    width: 95%;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin-left: 15px;
+    color: #00ccff;
+  }
+  #login_butt{
+    position: absolute;
+      width: 75%;
+      height: 12%;
+      margin-top: 70px;
+      text-decoration: none;
+      z-index: 10;
+      cursor: pointer;
+      font-size: 22px;
+      letter-spacing: 2px;
+      border: 1px solid #00ccff;
+      border-radius: 50px;
+      background-color: #0c1022;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #00ccff;
+  }
+  .fotter{
+    margin-top: 110px;
+    display: flex;
+    justify-content: space-between;
+  
+  }
+  .fotter a{
+    text-decoration: none;
+    cursor: pointer;
+  font-size: 18px;
+  color: #00ccff;
+  }
+  #login_butt:hover{
+    background-color: #00ccff;
+    color: #040717;
+    box-shadow: 0 0 10px #00ccff;
+  }

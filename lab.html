@@ -37,28 +37,30 @@
           <i class="fa-solid fa-bars" id="bars"></i>
       </div>
              </nav>
-              <div id="loginWindow" class="login">            
+         <div id="loginWindow" class="login">            
         <div class="login_form">
-            <button id="close_bt"><i class="fa-solid fa-close"></i></button>
+            <button id="close_bt"><i class="fa-solid fa-close" style="color: #00ccff;"></i></button>
         <h2 id="loginText">تسجيل الدخول</h2>
-        <form action="">
-        <div class="input_group"><i class="fa-solid fa-user"></i>
+        <form action method="post">
+        <div class="input_group"><i class="fa-solid fa-user" style="color: #00ccff;"></i>
             <input 
             type="text"
             placeholder="اسم المستخدم"
             class="input_text"
             autocomplete="off"
+            id="username"
             >
         </div>
-        <div class="input_group"><i class="fa-solid fa-unlock"></i>
+        <div class="input_group"><i class="fa-solid fa-unlock" style="color: #00ccff;"></i>
             <input 
             type="password"
             placeholder="كلمة المرور"
             class="input_text"
             autocomplete="off"
+            id="password"
             >
         </div>
-        <button class="button_group" id="login_butt" type="submit">تسجيل</button>
+        <button class="button_group" id="login_butt" type="button" onclick="dash()">تسجيل</button>
         <div class="fotter">
             <a href=""> هل نسيت كلمة المرور ?</a>
             <a href=""> انشاء حساب </a>
@@ -204,6 +206,35 @@
                  .catch(error => {
                      console.error('حدث خطأ أثناء جلب بيانات العنصر:', error);
                  });
+         }
+
+         function dash(){
+           const username=document.getElementById("username").value; 
+           const passwordd=document.getElementById("password").value; 
+           fetch('https://testbyad.adaptable.app/laboratory') 
+           .then(response => response.json())
+           .then(data => {
+                var manager = null;
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].name_manager === username ) {
+                 manager = data[i].name_manager;
+                    break;
+                }
+            }
+                var pass = null;
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].password === passwordd ) {
+                  pass = data[i].password;
+                    break;
+                }
+            }
+            if (manager !== null && pass !== null){
+                window.location.href = "dash.html";
+            } else {
+                alert("البيانات غير متطابقة!");
+            }
+
+           })
          }
        
 </script> 
