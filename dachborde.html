@@ -28,7 +28,7 @@
             </li>
             <li>
                 <a href="#" >
-                   <i class="fas fa-user-group" onclick=" toggle_show()" ></i>
+                  <button  onclick=" toggle_show()" > <i class="fas fa-user-group"></i></button>
                     <p>laboratory</p>
             
                 </a>
@@ -195,7 +195,7 @@
            </tbody>
         </table>
     </div>
-    <table id="tt">
+    <table id="tt"  >
 
         <thead>
          <tr>
@@ -242,10 +242,63 @@
 
         </tbody>
      </table>
+     <div id="loginWindow" class="login">            
+        <div class="login_form">
+            <button id="close_bt"><i class="fa-solid fa-close" style="color: #00ccff;"></i></button>
+        <h2 id="loginText">تعديل معلومات الحساب </h2>
+        <form action method="post">
+        <div class="input_group"><i class="fa-solid fa-user" style="color: #00ccff;"></i>
+            <input 
+            type="text"
+            placeholder="الاسم القديم"
+            class="input_text"
+            autocomplete="off"
+            id="username"
+            >
+        
+        </div>
+        <div class="input_group"><i class="fa-solid fa-user" style="color: #00ccff;"></i>
+            <input 
+            type="text"
+            placeholder="الاسم الجديد"
+            class="input_text"
+            autocomplete="off"
+            id="username"
+            >
+            </div>
+        <div class="input_group"><i class="fa-solid fa-unlock" style="color: #00ccff;"></i>
+            <input 
+            type="password"
+            placeholder="  كلمة المرور القديمة  "
+            class="input_text"
+            autocomplete="off"
+            id="password"
+            >
+        </div>
+        <div class="input_group"><i class="fa-solid fa-unlock" style="color: #00ccff;"></i>
+            <input 
+            type="password"
+            placeholder="كلمة المرور الجديدة  "
+            class="input_text"
+            autocomplete="off"
+            id="password"
+            >
+        </div>
+        <button class="button_group" id="login_butt" type="button" onclick="dash()">تعديل</button>
+     
+       </form>
+    </div>
 
+              </div>
+
+
+
+
+
+              
     <script>
         function toggle_show() {
-         var content = document.getElementById("tt" );
+         var content = document.getElementById("tt");
          content.classList.toggle("show");    
      }
     </script>

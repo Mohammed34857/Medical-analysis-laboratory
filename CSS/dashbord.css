@@ -159,7 +159,7 @@ button{
     color: white;
 }
 #tt{
-    display: none;
+    /* display: none; */
     z-index: 99;
     position: absolute;
     width: 80%;
@@ -175,3 +175,132 @@ button{
     color: aliceblue;}
 
     .show{display:block}
+
+
+
+
+
+  /* login */
+
+#loginButton{
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    top: 85px;
+    left: 30px;
+    width: 50%;
+    height: 10%;
+    border: none;
+    border-radius: 20px;
+    transition: 0.5s;
+    
+}
+  #loginButton:hover{
+    transform: scale(1.1);
+    background-color:var(--bgColor-2);
+    color:  #dee1ee;
+    box-shadow: 0 0 10px #d3ddee;
+}
+ 
+  .login{
+      position: absolute;
+      top: 159px;
+      left: 40%;
+      width: 400px;
+      height:400px ;
+      background-color: #dae8f1;
+      border-radius:50px 5px ;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+  }
+  .login::before{
+    position: absolute;
+    width: 170%;
+    height: 170%;
+    content: "";
+    background-image: conic-gradient(#d8dbeb,#0084ff,#040717,#00ccff);
+    animation: rotate-border 6s linear infinite;
+    animation-delay: -3s;
+  }
+  .login_form{
+    position: absolute;
+    background-color: #0b1622;
+    border-radius: 50px 5px;
+    inset: 5px;
+    padding: 50px 40px;
+    z-index: 10;
+    color: #00ccff;
+  }
+  @keyframes  rotate-border{
+    0%{
+      transform: rotate(0deg);
+      }
+    100%{
+      transform: rotate(360deg);
+  }
+  }
+  
+  #loginWindow{
+    /* visibility: hidden; */
+    position: fixed;
+    z-index: 100;
+  }
+  #close_bt{
+      position: absolute;
+      width: 50px;
+      height: 0px;
+      right: 15px;
+      top: 15px;  
+      border: none;
+      background-color: #4c557a;
+      color: #00ccff;
+      cursor: pointer;
+      font-size: xx-large;
+  }
+  #close_bt:hover{
+    transform: scale(1.3);
+  }
+  #loginText{
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .input_group{
+    margin-top: 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .input_text{
+    width: 95%;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin-left: 15px;
+    color: #00ccff;
+  }
+  #login_butt{
+    position: absolute;
+      width: 75%;
+      height: 12%;
+      margin-top: 30px;
+      text-decoration: none;
+      z-index: 10;
+      cursor: pointer;
+      font-size: 22px;
+      letter-spacing: 2px;
+      border: 1px solid #00ccff;
+      border-radius: 50px;
+      background-color: #213e5a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e7eff1;
+  }
+#loginText{
+    color: #d3ddee;
+}
