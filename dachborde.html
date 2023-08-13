@@ -27,16 +27,17 @@
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class="fas fa-user-group"></i>
-                    <p>clients</p>
+                <a href="#" >
+                   <i class="fas fa-user-group" onclick=" toggle_show()" ></i>
+                    <p>laboratory</p>
+            
                 </a>
             </li>
         
             <li>
                 <a href="#">
                     <i class="fas fa-table"></i>
-                    <p>products</p>
+                    <p>Materials</p>
                 </a>
             </li>
           
@@ -48,7 +49,7 @@
                 </a>
             </li>
             <li class="log-out">
-                <a href="#">
+                <a href="laboratory.html">
                     <i class="fas fa-sign-out"></i>
                     <p>log-out</p>
                 </a>
@@ -69,7 +70,7 @@
             <div class="box">
                 <i class="fas fa-user"></i>
                 <div class="data">
-                    <p>user</p>
+                    <p>laboratory</p>
                     <span>100</span>
                 </div>
 
@@ -78,7 +79,7 @@
             <div class="box">
                 <i class="fas fa-table"></i>
                 <div class="data">
-                    <p>productes</p>
+                    <p>Materials</p>
                     <span>100</span>
                 </div>
 
@@ -94,7 +95,7 @@
         </div>
 
         <div class="title-info">
-            <p>proudacts</p>
+            <p>Materials</p>
             <i class="fas fa-table"></i>
 
 
@@ -189,53 +190,65 @@
                     <button class="delet">delet</button></td>
 
             </tr>
-            <tr>
-                <td>ALBUMIN-BCG</td>
-                <td><span class="price">28799</span> </td>
-                <td><span class="count">897</span> </td>
-                <td>
-                    <i class="fas fa-pen"></i>
-                    <button>edit</button>
-                    <i class="fas fa-trash"></i>
-                    <button class="delet">delet</button>
-                </td>
-            </tr>
-            <tr>
-                <td>ALBUMIN-BCG</td>
-                <td><span class="price">28799</span> </td>
-                <td><span class="count">897</span> </td>
-                <td>
-                    <i class="fas fa-pen"></i>
-                    <button>edit</button>
-                    <i class="fas fa-trash"></i>
-                    <button class="delet">delet</button>
-                </td>
-            </tr>
-            <tr>
-                <td>ALBUMIN-BCG</td>
-                <td><span class="price">28799</span> </td>
-                <td><span class="count">897</span> </td>
-                <td><i class="fas fa-pen"></i>
-                    <button>edit</button>
-                    <i class="fas fa-trash"></i>
-                    <button class="delet">delet</button>
-                </td>
-            </tr>
-            <tr>
-                <td>ALBUMIN-BCG</td>
-                <td><span class="price">28799</span> </td>
-                <td><span class="count">897</span> </td>
-                <td>
-                    <i class="fas fa-pen"></i>
-                    <button>edit</button>
-                    <i class="fas fa-trash"></i>
-                    <button class="delet">delet</button>
-                </td>
 
-            </tr>
+      
            </tbody>
         </table>
     </div>
+    <table id="tt">
+
+        <thead>
+         <tr>
+             <th>name_laboratory</th>
+             <th>name-manager</th>
+             <th>phone</th>
+             <th>Titel</th>
+             <th>password</th>
+             <th>edit</th>
+
+         </tr>
+        </thead> 
+        <tbody>
+         <tr>
+             <td>مخبر كرزة</td>
+             <td><span class="price">د.ريم كرزة</span> </td>
+             <td><span class="count">8970451</span> </td>
+             <td>حلب_الجميلية</td>
+             <td>2d5d2eedhsj@@</td>
+             <td><i class="fas fa-pen"></i>
+                <button>edit</button>
+                <i class="fas fa-trash"></i>
+                <button class="delet">delet</button></td>
+       
+           
+         </tr>
+         <tr>
+            <td>مخبر كرزة</td>
+            <td><span class="price">د.ريم كرزة</span> </td>
+            <td><span class="count">8970451</span> </td>
+            <td>حلب_الجميلية</td>
+            <td>2d5d2eedhsj@@</td>
+            <td><i class="fas fa-pen"></i>
+               <button>edit</button>
+               <i class="fas fa-trash"></i>
+               <button class="delet">delet</button></td>
+      
+          
+        </tr>
+
+
+         
+      
+
+        </tbody>
+     </table>
+
+    <script>
+        function toggle_show() {
+         var content = document.getElementById("tt" );
+         content.classList.toggle("show");    
+     }
+    </script>
 
 </body>
 
