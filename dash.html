@@ -64,14 +64,14 @@
                     </div>
                     <div class="input_group"><i class="fa-solid fa-pen"></i>
                         <input 
-                        type="password"
+                        type="text"
                         placeholder=" الاسم الجديد"
                         class="input_text"
                         autocomplete="off"
                         id="newname1"
                         >
                     </div>
-                    <button class="button_group" id="login_butt" >حفظ</button>
+                    <button class="button_group" id="login_butt" onclick="save1()">حفظ</button>
                    </form>
                 </div>
                 </div>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="input_group"><i class="fa-solid fa-pen"></i>
                     <input 
-                    type="password"
+                    type="text"
                     placeholder="الاسم الجديد"
                     class="input_text"
                     autocomplete="off"
@@ -134,7 +134,7 @@
                     </div>
                     <div class="input_group"><i class="fa-solid fa-pen"></i>
                         <input 
-                        type="password"
+                        type="text"
                         placeholder="الرقم الجديد"
                         class="input_text"
                         autocomplete="off"
@@ -170,7 +170,7 @@
                 </div>
                 <div class="input_group"><i class="fa-solid fa-pen"></i>
                     <input 
-                    type="password"
+                    type="text"
                     placeholder=" الكمية"
                     class="input_text"
                     autocomplete="off"
@@ -203,7 +203,7 @@
                 </div>
                 <div class="input_group"><i class="fa-solid fa-pen"></i>
                     <input 
-                    type="password"
+                    type="text"
                     placeholder=" شروط التحليل"
                     class="input_text"
                     autocomplete="off"
@@ -272,26 +272,44 @@
     </footer>
     <script>
         function toggle_show(index) {
-    var content = document.getElementById("loginWindow" + index);
-    content.classList.toggle("show_content");    
-}
+         var content = document.getElementById("loginWindow" + index);
+         content.classList.toggle("show_content");    
+     }
+   
 
-         function update_name_lab(){
-           const oldname=document.getElementById("oldname1").value;  
-           const newname=document.getElementById("newname1").value;
-           fetch("https://testbyad.adaptable.app/laboratory")
+
+        let lab_Id ;
+        let newname;
+          window.onload = function showItemInfo() {
+             const urlParams = new URLSearchParams(window.location.search);
+             lab_Id = urlParams.get('id');
+             if (!lab_Id) {
+             console.error('لم يتم توفير معرف المخبر في عنوان الصفحة.');
+             return;
+              }  
+           const oldname=document.getElementById("oldname1");
+                 newname=document.getElementById("newname1").value;
+           fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`)
            .then(response => response.json())
            .then(data => {
-              
-                var old = null;
-            for (var i = 0; i < data.length; i++) {
-                if (data[i].name_laboratory === oldname ) {
-                    old = data[i].name_laboratory;
-                    break;
-                }
-            }        
-         })
-}
+            console.log(data.name_manager);
+            oldname.value = data.name_manager;   
+            })
+        }
+        function save1(){
+           fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                name_manager: newname
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+            }
+           })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+        }
+
 
     </script>
 </body>
