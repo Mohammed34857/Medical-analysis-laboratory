@@ -213,7 +213,7 @@ body{
     margin-left: 15px;
     color: #00ccff;
   }
-  #login_butt{
+  .button_group{
     position: absolute;
       width: 75%;
       height: 12%;
@@ -243,7 +243,7 @@ body{
   font-size: 18px;
   color: #00ccff;
   }
-  #login_butt:hover{
+  .button_group:hover{
     background-color: #00ccff;
     color: #040717;
     box-shadow: 0 0 10px #00ccff;
