@@ -47,14 +47,14 @@
             <div class="main-card">
                 <div class="card">
                     <i class="fas fa-lapt"></i>
-                    <h3> تعديل اسم المخبر </h3>
+                    <h3> تعديل اسم المدير </h3>
                     <!-- <p></p> -->
                     <button onclick="toggle_show(1)">  .... </button>
                 </div>
                 <div id="loginWindow1" class="login">            
                     <div class="login_form">
                         <button id="close_bt"><i class="fa-solid fa-close"></i></button>
-                    <form action="">
+                    <form action method="post">
                     <div class="input_group"><i class="fa-solid fa-pen"></i>
                         <input 
                         type="text"
@@ -73,7 +73,7 @@
                         id="newname1"
                         >
                     </div>
-                    <button class="button_group" id="login_butt" onclick="save1()">حفظ</button>
+                    <button class="button_group" id="login_butt1">حفظ</button>
                    </form>
                 </div>
                 </div>
@@ -82,7 +82,7 @@
            <div class="main-card">
             <div class="card">
                 <i class="fas fa-lapt"></i>
-                <h3> تعديل اسم المدير  </h3>
+                <h3> تعديل اسم المخبر  </h3>
                 <!-- <p>  </p> -->
                 <button onclick="toggle_show(2)">......</button>
             </div>
@@ -278,10 +278,7 @@
          content.classList.toggle("show_content");    
      }
    
-
-
-        let lab_Id ;
-        let newname;
+          let lab_Id ;
           window.onload = function showItemInfo() {
              const urlParams = new URLSearchParams(window.location.search);
              lab_Id = urlParams.get('id');
@@ -290,15 +287,17 @@
              return;
               }  
            const oldname=document.getElementById("oldname1");
-                 newname=document.getElementById("newname1").value;
            fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`)
            .then(response => response.json())
            .then(data => {
-            console.log(data.name_manager);
             oldname.value = data.name_manager;   
             })
         }
-        function save1(){
+        document.getElementById("login_butt1").addEventListener("click", function(event) {
+        event.preventDefault();
+        const  newname=document.getElementById("newname1").value;
+        console.log("lab_Id:", lab_Id);
+        console.log("newname1:", newname);
            fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`, {
             method: 'PATCH',
             body: JSON.stringify({
@@ -310,7 +309,7 @@
            })
             .then((response) => response.json())
             .then((json) => console.log(json));
-        }
+        });
 
 
     </script>
