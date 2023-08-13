@@ -182,7 +182,7 @@
 
  <script>
         
-        window.onload = function showItemInfo() {
+              window.onload = function showItemInfo() {
                 const urlParams = new URLSearchParams(window.location.search);
                 const labId = urlParams.get('id');
                 if (!labId) {
@@ -217,7 +217,7 @@
                 var manager = null;
             for (var i = 0; i < data.length; i++) {
                 if (data[i].name_manager === username ) {
-                 manager = data[i].name_manager;
+                 manager = data[i]._id;
                     break;
                 }
             }
@@ -228,8 +228,9 @@
                     break;
                 }
             }
+            
             if (manager !== null && pass !== null){
-                window.location.href = "dash.html";
+                window.location.href = `dash.html?id=${manager}`;
             } else {
                 alert("البيانات غير متطابقة!");
             }

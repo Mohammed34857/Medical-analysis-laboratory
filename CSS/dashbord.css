@@ -2,13 +2,13 @@
 
     padding: 0;
     margin: 0;
-    color: white;
+    color: black;
 font-family: sans-serif;
 
 }
 
 body {
-    background-color: #001;
+    background-color:rgb(247, 250, 253);
     display: flex;
 }
 .img-box{
@@ -35,7 +35,7 @@ flex-shrink: 0;
 
 
 .menu{
-background-color: #123;
+background-color: rgb(69, 107, 221);
 width: 60px;
 height: 100vh;
 padding: 20px;
@@ -65,6 +65,7 @@ transition: 0.5s;
 }
 .menu-ul li a:hover, .active,  .data-info .box:hover, td:hover{
 background-color: #ffffff55;
+color: black;
 
 }
 .log-out{
@@ -73,7 +74,7 @@ bottom: 0;
 width: 100%;
 }
 .log-out a{
-    background-color: red;
+    background-color: rgb(238, 87, 87);
 }
 .menu-ul li a i{
     font-size: 30px;
@@ -84,7 +85,7 @@ width: 100%;
     margin: 10px;
 }
 .title-info{
-    background-color: rgb(92, 119, 241);
+    background-color:rgb(69, 107, 221);
     padding: 10px;
     display: flex;
     align-items: center;
@@ -101,7 +102,7 @@ width: 100%;
 }
 .data-info .box{
     height: 150px;
-    background-color: #123;
+    background-color: rgb(75 120 165);
     flex-basis: 150px;
     flex-grow: 1;
     border-radius: 8px;
@@ -128,7 +129,7 @@ table{
     
 }
 td, th {
-    background-color: #123;
+    background-color: rgb(49, 87, 124);
     height: 40px;
     border-radius: 8px;
 }
@@ -157,3 +158,20 @@ button{
     background-color: red;
     color: white;
 }
+#tt{
+    display: none;
+    z-index: 99;
+    position: absolute;
+    width: 80%;
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: column;
+   left: 8%;
+   background-color: aliceblue;
+   top: 35%;
+  
+}
+#tt .price, td{
+    color: aliceblue;}
+
+    .show{display:block}
