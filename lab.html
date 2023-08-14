@@ -87,17 +87,14 @@
           
         <div>  
               <div class="card_lab" id="loca">
-                
-                        <p ><b id="name">   </b><br>
+                        <p ><b id="name">  </b><br>
                         <a id="address">  </a></p>
-                
-                       
                   <div class="icon_arr">
                     <i class="fa fa-map-marker fa-2xl"></i>
                 </div>
               </div>
                <div class="card_lab">
-               <h1 id="phone"></h1> <b style="font-size: x-large;"> الهاتف</b>
+                <div id="cardPhone"><b style="font-size: x-large;"> الهاتف</b><h1 id="phone"></h1> </div> 
                   <div class="icon_arr" >
                     <i class=" fa fa-phone fa-2xl" ></i>
                 </div>
@@ -107,12 +104,12 @@
         <div class="card_lab" id="analys">
 
           <ul><h2>التحاليل المتوفرة بالمخبر:</h2> 
-             
-                <li>  تحاليل الفحص الشامل</li>
+             <div id="analysis_existing"></div>
+                <!-- <li>  تحاليل الفحص الشامل</li>
                 <li> تحاليل مرض السكر</li>
                 <li>تحاليل وظائف الكبد</li>
                 <li>تحاليل وظائف الكلى</li>
-                <li> تحاليل املاح و معادن</li>
+                <li> تحاليل املاح و معادن</li> -->
         </ul>
           <div class="icon_arr" id="icon1">
             <i class=" fa fa-bars fa-2xl" ></i>
@@ -195,10 +192,12 @@
                      const itemInfoContainer = document.getElementById('address');
                      const item1InfoContainer = document.getElementById('name');
                      const item2InfoContainer = document.getElementById('phone');
+                     const item3InfoContainer = document.getElementById('analysis_existing');
                      if (data) {
                          itemInfoContainer.textContent=data.address_details;
                          item1InfoContainer.textContent=data.name_manager;
                          item2InfoContainer.textContent=data.number_phon;
+                         item3InfoContainer.textContent=data.analysis_existing;
                      } else {
                          itemInfoContainer.innerHTML = '<p>لا يوجد معلومات متاحة لهذا العنصر.</p>';
                      }

@@ -108,7 +108,7 @@
                     id="newname2"
                     >
                 </div>
-                <button class="button_group" id="login_butt2" type="submit">حفظ</button>
+                <button class="button_group" id="login_butt2">حفظ</button>
                </form>
             </div>
             </div>
@@ -143,7 +143,7 @@
                         id="newname3"
                         >
                     </div>
-                    <button class="button_group" id="login_butt3" type="submit">حفظ</button>
+                    <button class="button_group" id="login_butt3">حفظ</button>
                    </form>
                 </div>
                 </div>
@@ -180,7 +180,7 @@
                     id="amount"
                     >
                 </div>
-                <button class="button_group" id="login_butt4" type="submit">حفظ</button>
+                <button class="button_group" id="login_butt4">حفظ</button>
                </form>
             </div>
             </div>
@@ -203,17 +203,18 @@
                     placeholder="اسم التحليل"
                     class="input_text"
                     autocomplete="off"
+                    id="analysis"
                     >
                 </div>
-                <div class="input_group"><i class="fa-solid fa-pen"></i>
+                <!-- <div class="input_group"><i class="fa-solid fa-pen"></i>
                     <input 
                     type="text"
                     placeholder=" شروط التحليل"
                     class="input_text"
                     autocomplete="off"
                     >
-                </div>
-                <button class="button_group" id="login_butt5" type="submit">حفظ</button>
+                </div> -->
+                <button class="button_group" id="login_butt5">حفظ</button>
                </form>
             </div>
             </div>
@@ -345,16 +346,66 @@
            })
             .then((response) => response.json())
             .then((json) => console.log(json));
-            window.location.reload();
+             window.location.reload();
         });
+
+        let pric;
+        let id_material;
         document.getElementById("login_butt4").addEventListener("click", function(event) {
         event.preventDefault();
         const  material=document.getElementById("material").value;
+        fetch("https://testbyad.adaptable.app/material") 
+           .then(response => response.json())
+           .then(data => {
+             pric = null;
+             id_material = null;
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].name_Material === material ) {
+                    id_material = data[i]._id;
+                    pric = data[i].price;
+                    break;
+                }
+            }
+           })
         const  amount=document.getElementById("amount").value;
-           fetch("https://testbyad.adaptable.app/offer", {
-            method: 'PUT',
+        if (id_material) {
+                const newOrder = {
+                    id_laboratory: lab_Id, 
+                    id_Material: id_material,
+                    Quantity: amount,
+                    price: amount*pric
+                };
+                fetch("https://testbyad.adaptable.app/order", {
+                    method: 'POST',
+                    body: JSON.stringify(newOrder),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    }
+                })
+                .then(response => response.json())
+                .then(json => {
+                    console.log(json);
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.error('حدث خطأ أثناء الطلب:', error);
+                });
+            }
+        });
+
+        document.getElementById("login_butt5").addEventListener("click", function(event) {
+        event.preventDefault();
+        let  analysis=document.getElementById("analysis").value;
+        fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`) 
+           .then(response => response.json())
+           .then(data => {
+             let  oldAnalysis = data.analysis_existing;
+             let  newAnalysis = `${oldAnalysis} - ${analysis}`;
+
+             fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`, {
+            method: 'PATCH',
             body: JSON.stringify({
-                __v: material
+                analysis_existing: newAnalysis
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8'
@@ -362,9 +413,10 @@
            })
             .then((response) => response.json())
             .then((json) => console.log(json));
-            window.location.reload();
-        });
-
+             window.location.reload();
+             });
+             
+    })
     </script>
 </body>
 </html>
