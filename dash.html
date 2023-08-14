@@ -108,7 +108,7 @@
                     id="newname2"
                     >
                 </div>
-                <button class="button_group" id="login_butt" type="submit">حفظ</button>
+                <button class="button_group" id="login_butt2" type="submit">حفظ</button>
                </form>
             </div>
             </div>
@@ -143,7 +143,7 @@
                         id="newname3"
                         >
                     </div>
-                    <button class="button_group" id="login_butt" type="submit">حفظ</button>
+                    <button class="button_group" id="login_butt3" type="submit">حفظ</button>
                    </form>
                 </div>
                 </div>
@@ -178,7 +178,7 @@
                     autocomplete="off"
                     >
                 </div>
-                <button class="button_group" id="login_butt" type="submit">حفظ</button>
+                <button class="button_group" id="login_butt4" type="submit">حفظ</button>
                </form>
             </div>
             </div>
@@ -211,7 +211,7 @@
                     autocomplete="off"
                     >
                 </div>
-                <button class="button_group" id="login_butt" type="submit">حفظ</button>
+                <button class="button_group" id="login_butt5" type="submit">حفظ</button>
                </form>
             </div>
             </div>
@@ -286,22 +286,39 @@
              console.error('لم يتم توفير معرف المخبر في عنوان الصفحة.');
              return;
               }  
-           const oldname=document.getElementById("oldname1");
+           const oldname1=document.getElementById("oldname1");
+           const oldname2=document.getElementById("oldname2");
+           const oldname3=document.getElementById("oldname3");
            fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`)
            .then(response => response.json())
            .then(data => {
-            oldname.value = data.name_manager;   
+            oldname1.value = data.name_manager;  
+            oldname2.value = data.name_laboratory; 
+            oldname3.value = data.number_phon;  
             })
         }
         document.getElementById("login_butt1").addEventListener("click", function(event) {
         event.preventDefault();
-        const  newname=document.getElementById("newname1").value;
-        console.log("lab_Id:", lab_Id);
-        console.log("newname1:", newname);
+        const  newname1=document.getElementById("newname1").value;
            fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`, {
             method: 'PATCH',
             body: JSON.stringify({
-                name_manager: newname
+                name_manager: newname1
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+            }
+           })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+        });
+        document.getElementById("login_butt1").addEventListener("click", function(event) {
+        event.preventDefault();
+        const  newname2=document.getElementById("newname2").value;
+           fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                name_manager: newname2
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8'
