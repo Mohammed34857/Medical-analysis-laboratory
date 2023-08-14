@@ -28,7 +28,7 @@
             </li>
             <li>
                 <a href="#" >
-                  <button  onclick=" toggle_show()" > <i class="fas fa-user-group"></i></button>
+                  <button class="btn"  onclick=" toggle_show()" > <i class="fas fa-user-group" ></i></button>
                     <p>laboratory</p>
             
                 </a>
@@ -44,7 +44,7 @@
 
             <li>
                 <a href="#">
-                    <i class="fas fa-cog"></i>
+                    <button class="btn"  id="login_bt" onclick="login_but()"><i class="fas fa-cog"></i></button>
                     <p>settings</p>
                 </a>
             </li>
@@ -118,7 +118,7 @@
                 <td><span class="price">28799</span> </td>
                 <td><span class="count">897</span> </td>
                 <td><i class="fas fa-pen"></i>
-                    <button>edit</button>
+                    <button  class="edet">edit</button>
                     <i class="fas fa-trash"></i>
                     <button class="delet">delet</button></td>
             </tr>
@@ -128,7 +128,7 @@
                 <td><span class="count">897</span> </td>
                 <td>
                     <i class="fas fa-pen"></i>
-                    <button>edit</button>
+                    <button class="edet">edit</button>
                     <i class="fas fa-trash"></i>
                     <button class="delet">delet</button>
                 </td>
@@ -140,7 +140,7 @@
                 <td><span class="count">897</span> </td>
                 <td>
                     <i class="fas fa-pen"></i>
-                    <button>edit</button>
+                    <button class="edet">edit</button>
                     <i class="fas fa-trash"></i>
                     <button class="delet">delet</button>
                     
@@ -153,7 +153,7 @@
                 <td><span class="count">897</span> </td>
                 <td>
                     <i class="fas fa-pen"></i>
-                    <button>edit</button>
+                    <button class="edet">edit</button>
                     <i class="fas fa-trash"></i>
                     <button class="delet">delet</button></td>
 
@@ -164,7 +164,7 @@
                 <td><span class="count">897</span> </td>
                 <td>
                     <i class="fas fa-pen"></i>
-                    <button>edit</button>
+                    <button class="edet">edit</button>
                     <i class="fas fa-trash"></i>
                     <button class="delet">delet</button></td>
 
@@ -175,7 +175,7 @@
                 <td><span class="count">897</span> </td>
                 <td>
                     <i class="fas fa-pen"></i>
-                    <button>edit</button>
+                    <button class="edet">edit</button>
                     <i class="fas fa-trash"></i>
                     <button class="delet">delet</button></td>
 
@@ -185,7 +185,7 @@
                 <td><span class="price">28799</span> </td>
                 <td><span class="count">897</span> </td>
                 <td><i class="fas fa-pen"></i>
-                    <button>edit</button>
+                    <button class="edet">edit</button>
                     <i class="fas fa-trash"></i>
                     <button class="delet">delet</button></td>
 
@@ -195,7 +195,7 @@
            </tbody>
         </table>
     </div>
-    <table id="tt"  >
+    <table class="tt" id="tt"  >
 
         <thead>
          <tr>
@@ -300,7 +300,19 @@
         function toggle_show() {
          var content = document.getElementById("tt");
          content.classList.toggle("show");    
-     }
+         }
+         
+         let login_but = function () {
+        var loginButton = document.getElementById("login_bt");
+        var loginWindow = document.getElementById("loginWindow");
+        var loginWindowClose = document.getElementById("close_bt");
+           loginButton.addEventListener("click", function() {
+           loginWindow.style.visibility = "visible"; 
+          });
+        loginWindowClose.addEventListener("click", function() {
+        loginWindow.style.visibility = "hidden"; 
+        });
+}
     </script>
 
 </body>

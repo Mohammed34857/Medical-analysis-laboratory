@@ -168,6 +168,7 @@
                     placeholder="اسم المادة"
                     class="input_text"
                     autocomplete="off"
+                    id="material"
                     >
                 </div>
                 <div class="input_group"><i class="fa-solid fa-pen"></i>
@@ -176,6 +177,7 @@
                     placeholder=" الكمية"
                     class="input_text"
                     autocomplete="off"
+                    id="amount"
                     >
                 </div>
                 <button class="button_group" id="login_butt4" type="submit">حفظ</button>
@@ -311,14 +313,15 @@
            })
             .then((response) => response.json())
             .then((json) => console.log(json));
+             window.location.reload();
         });
-        document.getElementById("login_butt1").addEventListener("click", function(event) {
+        document.getElementById("login_butt2").addEventListener("click", function(event) {
         event.preventDefault();
         const  newname2=document.getElementById("newname2").value;
            fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`, {
             method: 'PATCH',
             body: JSON.stringify({
-                name_manager: newname2
+                name_laboratory: newname2
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8'
@@ -326,8 +329,41 @@
            })
             .then((response) => response.json())
             .then((json) => console.log(json));
+            window.location.reload();
         });
-
+        document.getElementById("login_butt3").addEventListener("click", function(event) {
+        event.preventDefault();
+        const  newname3=document.getElementById("newname3").value;
+           fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                number_phon: newname3
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+            }
+           })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+            window.location.reload();
+        });
+        document.getElementById("login_butt4").addEventListener("click", function(event) {
+        event.preventDefault();
+        const  material=document.getElementById("material").value;
+        const  amount=document.getElementById("amount").value;
+           fetch("https://testbyad.adaptable.app/offer", {
+            method: 'PUT',
+            body: JSON.stringify({
+                __v: material
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+            }
+           })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+            window.location.reload();
+        });
 
     </script>
 </body>

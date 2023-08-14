@@ -148,7 +148,13 @@ border-radius: 6px;
     background-color: gold;
     color: black;
 }
-button{
+.delet{
+    color: #123;
+    border-radius: 10px;
+    width: 50px;
+    height: 25px;
+}
+.edet{
     color: #123;
     border-radius: 10px;
     width: 50px;
@@ -158,25 +164,34 @@ button{
     background-color: red;
     color: white;
 }
-#tt{
-    /* display: none; */
+.tt{
+    display: none; 
     z-index: 99;
     position: absolute;
     width: 80%;
     align-items: baseline;
     justify-content: center;
     flex-direction: column;
-   left: 8%;
-   background-color: aliceblue;
-   top: 35%;
+    left: 8%;
+    background-color: aliceblue;
+    top: 35%;
   
 }
 #tt .price, td{
     color: aliceblue;}
 
-    .show{display:block}
+.show{
+    display:block;
+    width: auto;
+}
+.show td{
+    padding: 20px;
+}
 
-
+.btn{
+    background-color: transparent;
+    border: none;
+}
 
 
 
@@ -207,7 +222,7 @@ button{
       top: 159px;
       left: 40%;
       width: 400px;
-      height:400px ;
+      height:440px ;
       background-color: #dae8f1;
       border-radius:50px 5px ;
       display: flex;
@@ -243,7 +258,7 @@ button{
   }
   
   #loginWindow{
-    /* visibility: hidden; */
+    visibility: hidden;
     position: fixed;
     z-index: 100;
   }
@@ -304,3 +319,9 @@ button{
 #loginText{
     color: #d3ddee;
 }
+#login_butt:hover{
+    background-color: #00ccff;
+    color: #040717;
+    box-shadow: 0 0 10px #00ccff;
+  }
+ 
