@@ -14,9 +14,8 @@
 <body>
     <div class="result-head">
         <div class="heavenly" id="tel">
-            <p>Tel: <strong>+963 348 643 467 <br> <br> +963 (021) 33 555 76 </strong></p>
-            <p>info@<strong>Kabbewar-lab.com</strong></p>
-            <p>http://<strong>www.Kabbewar-lab.com</strong></p>
+          <p>employee: <strong id="employee"></strong></p>
+          <p>laboratory phone:<strong id="phone"></strong></p>
          </div>
         <div id="contact">
             <p style="padding:10px; background-color:rgba(234, 235, 146, 0.753);"> Laboratory manager :</p>
@@ -29,7 +28,7 @@
          <div class="color" id="yellow"></div>
          <div class="heavenly" id="addres">
           <h2>molecular diagnostic & genetic</h2>
-          <h2>ALEPPO,SYRIA</h2>
+          <h2>DAMASCUSE & ALEPPO,SYRIA</h2>
          </div>
         <div id="container">
            <p>Doctor : <strong id="Doctor"> </strong></p>
@@ -64,12 +63,19 @@ window.onload = function showItemInfo() {
     const doctor = document.getElementById("Doctor");
     const patient = document.getElementById("Patient");
     const date = document.getElementById("date");
+    const phone = document.getElementById("phone");
+    const employee= document.getElementById("employee");
   fetch(`https://testbyad.adaptable.app/analysis-demand/${analysis_demand_id}`)  
   .then(response => response.json())
   .then(data => {
     date.textContent = data.date_analays;
     const LabAnaPartana_id = data.id_LabAnaPartana;
-    const Medical_referral_id = data.id_MedicalReferral;    
+    const Medical_referral_id = data.id_MedicalReferral;   
+    const employee_id = data.id_Employee; 
+    fetch(`https://testbyad.adaptable.app/employee/${employee_id}`)
+  .then(response => response.json())
+  .then(data => {
+      employee.textContent = data.name;
   fetch(`https://testbyad.adaptable.app/medical-referral/${Medical_referral_id}`)
   .then(response => response.json())
   .then(data => {
@@ -87,6 +93,7 @@ window.onload = function showItemInfo() {
      })
    })
   })
+})
   const table = document.getElementById('table');
   fetch(`https://testbyad.adaptable.app/analysis-demand/${analysis_demand_id}`)  
   .then(response => response.json())
@@ -96,13 +103,13 @@ window.onload = function showItemInfo() {
   .then(response => response.json())
   .then(data =>{
     const AnaPartanalysis_id = data.id_AnaPartanalysis;
-
     const manager = document.getElementById('manager');
     const Laboratory_id = data.id_Laboratory;
     fetch(`https://testbyad.adaptable.app/laboratory/${Laboratory_id}`)
   .then(response => response.json())
   .then(data =>{
     manager.textContent = data.name_manager;
+    phone.textContent = data.number_phon; 
    })
 
     fetch(`https://testbyad.adaptable.app/ana-partanalysis/${AnaPartanalysis_id}`)
@@ -110,7 +117,6 @@ window.onload = function showItemInfo() {
   .then(data =>{
     const partial_analysis_id = data.id_partial_analysis;
     const analysis_id = data.id_anaylsis;
-   
    fetch(`https://testbyad.adaptable.app/analysis/${analysis_id}`)
     .then(response => response.json())
     .then(data =>{

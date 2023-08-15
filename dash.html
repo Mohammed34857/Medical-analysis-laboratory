@@ -115,7 +115,7 @@
                     id="newname2"
                     >
                 </div>
-                <button class="button_group" id="login_butt2" type="submit">حفظ</button>
+                <button class="button_group" id="login_butt2">حفظ</button>
                </form>
             </div>
             </div>
@@ -150,7 +150,7 @@
                         id="newname3"
                         >
                     </div>
-                    <button class="button_group" id="login_butt3" type="submit">حفظ</button>
+                    <button class="button_group" id="login_butt3">حفظ</button>
                    </form>
                 </div>
                 </div>
@@ -192,7 +192,7 @@
                     id="amount"
                     >
                 </div>
-                <button class="button_group" id="login_butt4" type="submit">حفظ</button>
+                <button class="button_group" id="login_butt4">حفظ</button>
                </form>
             </div>
             </div>
@@ -212,20 +212,22 @@
                 <div class="input_group"><i class="fa-solid fa-pen"></i>
                     <input 
                     type="text"
-                    placeholder="اسم التحليل"
+                    placeholder=" التحاليل المتوفرة "
                     class="input_text"
                     autocomplete="off"
+                    id="oldAnalysis"
                     >
                 </div>
                 <div class="input_group"><i class="fa-solid fa-pen"></i>
                     <input 
                     type="text"
-                    placeholder=" شروط التحليل"
+                    placeholder=" التحليل الجديد "
                     class="input_text"
                     autocomplete="off"
+                    id="newAnalysis"
                     >
                 </div>
-                <button class="button_group" id="login_butt5" type="submit">حفظ</button>
+                <button class="button_group" id="login_butt5">حفظ</button>
                </form>
             </div>
             </div>
@@ -281,7 +283,7 @@
         </div>
     
         </div>
-       <div class="p"> <p>© 2023 معامل ألفا للتحاليل الطبية. جميع الحقوق محفوظه</p></div>
+       <div class="p"> <p>© 2023 شركة ألفا للتحاليل الطبية. جميع الحقوق محفوظه</p></div>
     
     
     
@@ -303,12 +305,14 @@
            const oldname1=document.getElementById("oldname1");
            const oldname2=document.getElementById("oldname2");
            const oldname3=document.getElementById("oldname3");
+           let  oldAnalysis=document.getElementById("oldAnalysis");
            fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`)
            .then(response => response.json())
            .then(data => {
             oldname1.value = data.name_manager;  
             oldname2.value = data.name_laboratory; 
-            oldname3.value = data.number_phon;  
+            oldname3.value = data.number_phon;
+            oldAnalysis.value = data.analysis_existing;  
             })
         }
         document.getElementById("login_butt1").addEventListener("click", function(event) {
@@ -325,7 +329,9 @@
            })
             .then((response) => response.json())
             .then((json) => console.log(json));
-             window.location.reload();
+            setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
         });
         document.getElementById("login_butt2").addEventListener("click", function(event) {
         event.preventDefault();
@@ -341,7 +347,9 @@
            })
             .then((response) => response.json())
             .then((json) => console.log(json));
-            window.location.reload();
+            setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
         });
         document.getElementById("login_butt3").addEventListener("click", function(event) {
         event.preventDefault();
@@ -357,16 +365,63 @@
            })
             .then((response) => response.json())
             .then((json) => console.log(json));
-            window.location.reload();
+            setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
         });
+
+        let pric;
+        let id_material;
         document.getElementById("login_butt4").addEventListener("click", function(event) {
         event.preventDefault();
         const  material=document.getElementById("material").value;
+        fetch("https://testbyad.adaptable.app/material") 
+           .then(response => response.json())
+           .then(data => {
+             pric = null;
+             id_material = null;
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].name_Material === material ) {
+                    id_material = data[i]._id;
+                    pric = data[i].price;
+                    break;
+                }
+            }
+           })
         const  amount=document.getElementById("amount").value;
-           fetch("https://testbyad.adaptable.app/offer", {
-            method: 'PUT',
+        if (id_material) {
+                const newOrder = {
+                    id_laboratory: lab_Id, 
+                    id_Material: id_material,
+                    Quantity: amount,
+                    price: amount*pric
+                };
+                fetch("https://testbyad.adaptable.app/order", {
+                    method: 'POST',
+                    body: JSON.stringify(newOrder),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    }
+                })
+                .then(response => response.json())
+                .then(json => {
+                    setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+                })
+                .catch(error => {
+                    console.error('حدث خطأ أثناء الطلب:', error);
+                });
+            }
+        });
+
+        document.getElementById("login_butt5").addEventListener("click", function(event) {
+        event.preventDefault();
+        const  newAnalysis=document.getElementById("newAnalysis").value;
+             fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`, {
+            method: 'PATCH',
             body: JSON.stringify({
-                __v: material
+                analysis_existing: newAnalysis
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8'
@@ -374,9 +429,10 @@
            })
             .then((response) => response.json())
             .then((json) => console.log(json));
-            window.location.reload();
-        });
-
+            setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+             });
     </script>
 </body>
 </html>

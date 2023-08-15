@@ -173,6 +173,7 @@ margin-top: 200px;
 #icon1{
 margin-bottom: 180%;
 }
+
 .s{
     height: 600px;
     background-image: url(image/day-laboratory.png);
@@ -215,7 +216,10 @@ margin-bottom: 180%;
 .city{
   min-height: 100vh;
 }
-
+#analysis_existing{
+  font-size: larger;
+    padding: 18px;
+}
 
 
 

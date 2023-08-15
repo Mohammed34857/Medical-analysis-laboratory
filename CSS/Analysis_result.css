@@ -100,7 +100,7 @@ td b{
   width: 480px;
   height: 110px;
 }
-#contact p , #container p {
+#contact p , #container p , #tel p{
   line-height: 1;
   font-weight: bold;
 }
