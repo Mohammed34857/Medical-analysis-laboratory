@@ -200,20 +200,21 @@
                 <div class="input_group"><i class="fa-solid fa-pen"></i>
                     <input 
                     type="text"
-                    placeholder="اسم التحليل"
+                    placeholder=" التحاليل المتوفرة "
                     class="input_text"
                     autocomplete="off"
-                    id="analysis"
+                    id="oldAnalysis"
                     >
                 </div>
-                <!-- <div class="input_group"><i class="fa-solid fa-pen"></i>
+                <div class="input_group"><i class="fa-solid fa-pen"></i>
                     <input 
                     type="text"
-                    placeholder=" شروط التحليل"
+                    placeholder=" التحليل الجديد "
                     class="input_text"
                     autocomplete="off"
+                    id="newAnalysis"
                     >
-                </div> -->
+                </div>
                 <button class="button_group" id="login_butt5">حفظ</button>
                </form>
             </div>
@@ -270,7 +271,7 @@
         </div>
     
         </div>
-       <div class="p"> <p>© 2023 معامل ألفا للتحاليل الطبية. جميع الحقوق محفوظه</p></div>
+       <div class="p"> <p>© 2023 شركة ألفا للتحاليل الطبية. جميع الحقوق محفوظه</p></div>
     
     
     
@@ -292,12 +293,14 @@
            const oldname1=document.getElementById("oldname1");
            const oldname2=document.getElementById("oldname2");
            const oldname3=document.getElementById("oldname3");
+           let  oldAnalysis=document.getElementById("oldAnalysis");
            fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`)
            .then(response => response.json())
            .then(data => {
             oldname1.value = data.name_manager;  
             oldname2.value = data.name_laboratory; 
-            oldname3.value = data.number_phon;  
+            oldname3.value = data.number_phon;
+            oldAnalysis.value = data.analysis_existing;  
             })
         }
         document.getElementById("login_butt1").addEventListener("click", function(event) {
@@ -314,7 +317,9 @@
            })
             .then((response) => response.json())
             .then((json) => console.log(json));
-             window.location.reload();
+            setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
         });
         document.getElementById("login_butt2").addEventListener("click", function(event) {
         event.preventDefault();
@@ -330,7 +335,9 @@
            })
             .then((response) => response.json())
             .then((json) => console.log(json));
-            window.location.reload();
+            setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
         });
         document.getElementById("login_butt3").addEventListener("click", function(event) {
         event.preventDefault();
@@ -346,7 +353,9 @@
            })
             .then((response) => response.json())
             .then((json) => console.log(json));
-             window.location.reload();
+            setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
         });
 
         let pric;
@@ -384,8 +393,9 @@
                 })
                 .then(response => response.json())
                 .then(json => {
-                    console.log(json);
+                    setTimeout(() => {
                     window.location.reload();
+                }, 2000);
                 })
                 .catch(error => {
                     console.error('حدث خطأ أثناء الطلب:', error);
@@ -395,13 +405,7 @@
 
         document.getElementById("login_butt5").addEventListener("click", function(event) {
         event.preventDefault();
-        let  analysis=document.getElementById("analysis").value;
-        fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`) 
-           .then(response => response.json())
-           .then(data => {
-             let  oldAnalysis = data.analysis_existing;
-             let  newAnalysis = `${oldAnalysis} - ${analysis}`;
-
+        const  newAnalysis=document.getElementById("newAnalysis").value;
              fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`, {
             method: 'PATCH',
             body: JSON.stringify({
@@ -413,10 +417,10 @@
            })
             .then((response) => response.json())
             .then((json) => console.log(json));
-             window.location.reload();
+            setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
              });
-             
-    })
     </script>
 </body>
 </html>
