@@ -1,12 +1,19 @@
 body{
-    background: rgb(200, 222, 241);
-   }
+margin-top: 0%;
+  height: 150%;
+ 
+    background-color: #b6d2f7;
+
+  }
+   
    .main{
        position: relative;
        width: 100%;
-       min-height: 200vh;
+       min-height:80%;
        height: auto;
-   
+    margin-bottom: 30px;
+
+
    }
    .main-top
    {
@@ -59,29 +66,29 @@ body{
        box-shadow: 0 20px 35px rgb(0, 0, 0, 0.1);
    }
    .main-manger .card h3{
-       margin: 10 px ;
+       margin: 10px ;
        text-transform: capitalize;
    }
    .main-manger1 .card h3{
-       margin: 10 px ;
+       margin: 10px ;
        text-transform: capitalize;
    }
    .main-manger .card p{
        font-size: 12px;
    }
    .main-manger .card button{
-       background: #f9fafa;
-       color: rgb(166, 219, 243);
-       padding: 7px 15 px;
-       border-radius: 10 px; 
+       background: #fdfeff;
+       color: rgb(8, 12, 14);
+       padding: 7px 15px;
+       border-radius: 10px; 
        margin-top: 15px;
        cursor: pointer;
    }
    .main-manger1 .card button{
        background: #f9fafa;
-       color: rgb(166, 219, 243);
-       padding: 7px 15 px;
-       border-radius: 10 px; 
+       color: rgb(14, 15, 15);
+       padding: 7px 15px;
+       border-radius: 10px; 
        margin-top: 15px;
        cursor: pointer;
    }
@@ -94,12 +101,12 @@ body{
    .main-manger .card i{
    
        font-size: 22px;
-       padding: 10 px;
+       padding: 10px;
    }
    .main-manger1 .card i{
    
        font-size: 22px;
-       padding: 10 px;
+       padding: 10px;
    }
 
 
@@ -147,7 +154,7 @@ body{
     width: 170%;
     height: 170%;
     content: "";
-    background-image: conic-gradient(#040717,#cc00ff,#040717,#00ccff);
+    background-image: conic-gradient(#070b25,#0574db,#040717,#06b9e6);
     animation: rotate-border 6s linear infinite;
     animation-delay: -3s;
   }
@@ -248,3 +255,38 @@ body{
     color: #040717;
     box-shadow: 0 0 10px #00ccff;
   }
+  .cont{
+    
+    width: 100%;
+  margin-top: 0%;
+    padding:  0%;
+  
+  
+  }
+
+.title-info{
+  background-color:rgb(69, 107, 221);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  margin:10px 0 ;
+  text-align: center;
+  font-size: large;
+
+}
+.title-info{
+  background-color:rgb(69, 107, 221);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  margin:10px 0 ;
+}
+p{
+  font-size: x-large;
+font-weight: 200;
+color: #040717;
+}
