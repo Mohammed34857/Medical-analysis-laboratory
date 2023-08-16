@@ -114,6 +114,9 @@ width: 100%;
     font-size: 40px;
 
 }
+ .data-info .box:hover{
+    background-color: white;
+}
 .data-info .box .data{
     text-align: center;
 }
