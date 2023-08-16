@@ -101,102 +101,66 @@
 
         </div>
 
-        <table>
+        <table id="materialsTable">
 
-           <thead>
+           <thead >
             <tr>
                 <th>product</th>
+                <th>Production_Date</th>
+                <th>Production_Date</th>
                 <th>price</th>
                 <th>count</th>
-                <th>edit</th>
-
             </tr>
-           </thead> 
-           <tbody>
-            <tr>
-                <td>ALBUMIN-BCG</td>
-                <td><span class="price">28799</span> </td>
-                <td><span class="count">897</span> </td>
-                <td><i class="fas fa-pen"></i>
-                    <button  class="edet">edit</button>
-                    <i class="fas fa-trash"></i>
-                    <button class="delet">delet</button></td>
-            </tr>
-            <tr>
-                <td>ALBUMIN-BCG</td>
-                <td><span class="price">28799</span> </td>
-                <td><span class="count">897</span> </td>
-                <td>
-                    <i class="fas fa-pen"></i>
-                    <button class="edet">edit</button>
-                    <i class="fas fa-trash"></i>
-                    <button class="delet">delet</button>
-                </td>
-
-            </tr>
-            <tr>
-                <td>ALBUMIN-BCG</td>
-                <td><span class="price">28799</span> </td>
-                <td><span class="count">897</span> </td>
-                <td>
-                    <i class="fas fa-pen"></i>
-                    <button class="edet">edit</button>
-                    <i class="fas fa-trash"></i>
-                    <button class="delet">delet</button>
-                    
-                </td>
-
-            </tr>
-            <tr>
-                <td>ALBUMIN-BCG</td>
-                <td><span class="price">28799</span> </td>
-                <td><span class="count">897</span> </td>
-                <td>
-                    <i class="fas fa-pen"></i>
-                    <button class="edet">edit</button>
-                    <i class="fas fa-trash"></i>
-                    <button class="delet">delet</button></td>
-
-            </tr>
-            <tr>
-                <td>ALBUMIN-BCG</td>
-                <td><span class="price">28799</span> </td>
-                <td><span class="count">897</span> </td>
-                <td>
-                    <i class="fas fa-pen"></i>
-                    <button class="edet">edit</button>
-                    <i class="fas fa-trash"></i>
-                    <button class="delet">delet</button></td>
-
-            </tr>
-            <tr>
-                <td>ALBUMIN-BCG</td>
-                <td><span class="price">28799</span> </td>
-                <td><span class="count">897</span> </td>
-                <td>
-                    <i class="fas fa-pen"></i>
-                    <button class="edet">edit</button>
-                    <i class="fas fa-trash"></i>
-                    <button class="delet">delet</button></td>
-
-            </tr>
-            <tr>
-                <td>ALBUMIN-BCG</td>
-                <td><span class="price">28799</span> </td>
-                <td><span class="count">897</span> </td>
-                <td><i class="fas fa-pen"></i>
-                    <button class="edet">edit</button>
-                    <i class="fas fa-trash"></i>
-                    <button class="delet">delet</button></td>
-
-            </tr>
-
-      
-           </tbody>
+        </thead> 
         </table>
-    </div>
-    <table class="tt" id="tt"  >
 
+        <table >
+
+            <thead >
+             <tr>
+                 <th>product</th>
+                 <th>Production_Date</th>
+                 <th>Production_Date</th>
+                 <th>price</th>
+                 <th>count</th>
+                 <th>edit</th>
+ 
+             </tr>
+         </thead> 
+         <tbody>
+          <tr>
+              <td><input type="text" id="product1" class="product" ></td>
+              <td><input type="text" id="Production_Date1" class="Production_Date" ></td>
+              <td><input type="text" id="Expiry_date1" class="Expiry_date" ></td>
+              <td><input type="text" id="price1" class="price" ></td>
+              <td><input type="text" id="Quantity1" class="Quantity" > </td>
+              <td><i class="fas fa-pen"></i>
+                    <button class="add">add</button>
+          </tr>
+          <tr>
+            <td><input type="text" id="product2" class="product" ></td>
+            <td><input type="text" id="Production_Date2" class="Production_Date" ></td>
+            <td><input type="text" id="Expiry_date2" class="Expiry_date" ></td>
+            <td><input type="text" id="price2" class="price" ></td>
+            <td><input type="text" id="Quantity2" class="Quantity" > </td>
+            <td>
+                  <i class="fas fa-pen"></i>
+                  <button class="edet">edet</button>
+        </tr>
+        <tr>
+            <td><input type="text" id="product3" class="product" ></td>
+            <td><input type="text" id="Production_Date3" class="Production_Date" ></td>
+            <td><input type="text" id="Expiry_date3" class="Expiry_date" ></td>
+            <td><input type="text" id="price3" class="price" ></td>
+            <td><input type="text" id="Quantity3" class="Quantity" > </td>
+            <td>
+                  <i class="fas fa-trash"></i>
+                  <button class="delet">delet</button></td>
+        </tr>
+          </tbody>
+         </table>
+    
+    <table class="tt" id="tt"  >
         <thead>
          <tr>
              <th>name_laboratory</th>
@@ -312,7 +276,98 @@
         loginWindowClose.addEventListener("click", function() {
         loginWindow.style.visibility = "hidden"; 
         });
-}
+    }
+    
+
+    window.onload = function() {
+  var table = document.getElementById('materialsTable');
+
+     fetch('https://testbyad.adaptable.app/material') 
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(material => {
+        var row = table.insertRow(-1);
+
+        var productCell = row.insertCell(0);
+        productCell.innerHTML = `<td> <span class="product"> ${material.name_Material}</span></td>`;
+
+        var Production_DateCell = row.insertCell(1);
+        Production_DateCell.innerHTML = `<td> <span class="Production_Date"> ${material.Production_Date}</span></td>`;
+
+        var Expiry_dateCell = row.insertCell(2);
+        Expiry_dateCell.innerHTML = `<td> <span class="Expiry_date"> ${material.Expiry_date}</span></td>`;
+
+        var priceCell = row.insertCell(3);
+        priceCell.innerHTML = `<td> <span class="price"> ${material.price}</span></td>`;
+
+        var Quantitycall = row.insertCell(4);
+        Quantitycall.innerHTML = `<td> <span class="count"> ${material.Quantity}</span></td>`;
+
+        var actionsCell = row.insertCell(5);
+        actionsCell.innerHTML = '';
+      });
+
+    })
+    }
+        
+         document.getElementById("add").addEventListener("click", function (event) {
+                event.preventDefault();
+                const product1 = document.getElementById("product1").value;
+                const Production_Date1 = document.getElementById("Production_Date1").value;
+                const Expiry_date1 = document.getElementById("Expiry_date1").value;
+                const price1 = document.getElementById("price1").value;
+                const Quantity1 = document.getElementById("Quantity1").value;
+                fetch(`https://testbyad.adaptable.app/material`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        name_manager: newname1
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    }
+                })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            });
+            document.getElementById("edet").addEventListener("click", function (event) {
+                event.preventDefault();
+                const newname1 = document.getElementById("newname1").value;
+                fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`, {
+                    method: 'PATCH',
+                    body: JSON.stringify({
+                        name_manager: newname1
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    }
+                })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            });
+            document.getElementById("delet").addEventListener("click", function (event) {
+                event.preventDefault();
+                const newname1 = document.getElementById("newname1").value;
+                fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`, {
+                    method: 'PATCH',
+                    body: JSON.stringify({
+                        name_manager: newname1
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    }
+                })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            });
     </script>
 
 </body>

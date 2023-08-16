@@ -237,7 +237,7 @@
 
 }
 #about{
-  background-image: url("/Medical-analysis-laboratory/CSS/image/واجهة.jpg");
+  background-image: url("image/واجهة.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 3px;
