@@ -35,7 +35,7 @@ flex-shrink: 0;
 
 
 .menu{
-background-color: rgb(69, 107, 221);
+background-color: rgb(70, 131, 182);
 width: 60px;
 height: 100vh;
 padding: 20px;
@@ -85,7 +85,7 @@ width: 100%;
     margin: 10px;
 }
 .title-info{
-    background-color:rgb(69, 107, 221);
+    background-color: rgb(70, 131, 182);
     padding: 10px;
     display: flex;
     align-items: center;
@@ -102,7 +102,7 @@ width: 100%;
 }
 .data-info .box{
     height: 150px;
-    background-color: rgb(75 120 165);
+    background:linear-gradient(to left,#cbe4f3,#b3d3f8,#a5c9f3,#a0deff);
     flex-basis: 150px;
     flex-grow: 1;
     border-radius: 8px;
@@ -135,7 +135,7 @@ td, th {
 }
 th{
     
-    background-color:  rgb(92, 119, 241);
+    background:linear-gradient(#a1c9f7,#b1d1f5,#7eb5f3,#318bf1);
 }
 .price, .count{
 padding: 6px;
@@ -324,4 +324,5 @@ border-radius: 6px;
     color: #040717;
     box-shadow: 0 0 10px #00ccff;
   }
+
  
