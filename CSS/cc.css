@@ -2,11 +2,12 @@
 
 
 #Subheader {
-    height: 500px;
+    height: 600px;
     position: relative;
-    background-image: url(image/949b8X6Msm-1.jpg);
+    background-image: url(image/ana.jpg);
     background-size: cover;
-    background-position: center;
+    /* background-position: center; */
+
     
 }
 
