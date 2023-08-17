@@ -27,7 +27,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" >
+                <a href="#labora" >
                   <button class="btn"  onclick=" toggle_show()" > <i class="fas fa-user-group" ></i></button>
                     <p>laboratory</p>
             
@@ -35,7 +35,7 @@
             </li>
         
             <li>
-                <a href="#">
+                <a href="#materia">
                     <i class="fas fa-table"></i>
                     <p>Materials</p>
                 </a>
@@ -59,7 +59,7 @@
     </div>
 
     <div class="content">
-        <div class="title-info">
+        <div id="dash" class="title-info">
             <p>dashborde</p>
             <i class="fas fa-chart-bar"></i>
 
@@ -94,11 +94,71 @@
             </div>
         </div>
 
-        <div class="title-info">
+          <div id="labora" class="title-info">
+            <p>Laboratory</p>
+            <i class="fas fa-table"></i>
+        </div>
+
+         <table id="laboratoryTable">
+            <thead>
+                <tr>
+                    <th>name_laboratory</th>
+                    <th>name-manager</th>
+                    <th>phone</th>
+                    <th>Title</th>
+                    <th>password</th>
+                </tr>
+            </thead>
+         </table>
+    
+       <table>
+        <thead>
+         <tr>
+             <th>name_laboratory</th>
+             <th>name-manager</th>
+             <th>phone</th>
+             <th>Title</th>
+             <th>password</th>
+             <th>edit</th>
+
+         </tr>
+        </thead> 
+        <tbody>
+            <tr>
+                <td><input type="text" id="name_laboratory1" class="name_laboratory" ></td>
+                <td><input type="text" id="name_manager1" class="name_manager" ></td>
+                <td><input type="text" id="phone1" class="phone" ></td>
+                <td><input type="text" id="Title1" class="Title" ></td>
+                <td><input type="password" id="password1" class="password" > </td>
+                <td><i class="fas fa-pen"></i>
+                      <button id="add1" class="add">add</button></td>
+            </tr>
+            <tr>
+              <td><input type="text" id="name_laboratory2" class="name_laboratory" ></td>
+              <td><input type="text" id="name_manager2" class="name_manager" ></td>
+              <td><input type="text" id="phone2" class="phone" ></td>
+              <td><input type="text" id="Title2" class="Title" ></td>
+              <td><input type="password" id="password2" class="password" > </td>
+              <td>
+                    <i class="fas fa-pen"></i>
+                    <button id="edit1" class="edit">edit</button></td>
+          </tr>
+          <tr>
+              <td><input type="text" id="name_laboratory3" class="name_laboratory" ></td>
+              <td><input type="text" id="name_manager3" class="name_manager" ></td>
+              <td><input type="text" id="phone3" class="phone" ></td>
+              <td><input type="text" id="Title3" class="Title" ></td>
+              <td><input type="password" id="password3" class="password" > </td>
+              <td>
+                    <i class="fas fa-trash"></i>
+                    <button id="delete1" class="delete">delete</button></td>
+          </tr>
+        </tbody>
+     </table>
+
+        <div id="materia" class="title-info">
             <p>Materials</p>
             <i class="fas fa-table"></i>
-
-
         </div>
 
         <table id="materialsTable">
@@ -135,7 +195,7 @@
               <td><input type="text" id="price1" class="price" ></td>
               <td><input type="text" id="Quantity1" class="Quantity" > </td>
               <td><i class="fas fa-pen"></i>
-                    <button class="add">add</button>
+                    <button id="add" class="add">add</button>
           </tr>
           <tr>
             <td><input type="text" id="product2" class="product" ></td>
@@ -145,7 +205,7 @@
             <td><input type="text" id="Quantity2" class="Quantity" > </td>
             <td>
                   <i class="fas fa-pen"></i>
-                  <button class="edet">edet</button>
+                  <button id="edit" class="edit">edit</button>
         </tr>
         <tr>
             <td><input type="text" id="product3" class="product" ></td>
@@ -155,57 +215,12 @@
             <td><input type="text" id="Quantity3" class="Quantity" > </td>
             <td>
                   <i class="fas fa-trash"></i>
-                  <button class="delet">delet</button></td>
+                  <button id="delete" class="delete">delete</button></td>
         </tr>
           </tbody>
          </table>
-    
-    <table class="tt" id="tt"  >
-        <thead>
-         <tr>
-             <th>name_laboratory</th>
-             <th>name-manager</th>
-             <th>phone</th>
-             <th>Titel</th>
-             <th>password</th>
-             <th>edit</th>
-
-         </tr>
-        </thead> 
-        <tbody>
-         <tr>
-             <td>مخبر كرزة</td>
-             <td><span class="price">د.ريم كرزة</span> </td>
-             <td><span class="count">8970451</span> </td>
-             <td>حلب_الجميلية</td>
-             <td>2d5d2eedhsj@@</td>
-             <td><i class="fas fa-pen"></i>
-                <button>edit</button>
-                <i class="fas fa-trash"></i>
-                <button class="delet">delet</button></td>
-       
-           
-         </tr>
-         <tr>
-            <td>مخبر كرزة</td>
-            <td><span class="price">د.ريم كرزة</span> </td>
-            <td><span class="count">8970451</span> </td>
-            <td>حلب_الجميلية</td>
-            <td>2d5d2eedhsj@@</td>
-            <td><i class="fas fa-pen"></i>
-               <button>edit</button>
-               <i class="fas fa-trash"></i>
-               <button class="delet">delet</button></td>
-      
-          
-        </tr>
 
 
-         
-      
-
-        </tbody>
-     </table>
      <div id="loginWindow" class="login">            
         <div class="login_form">
             <button id="close_bt"><i class="fa-solid fa-close" style="color: #00ccff;"></i></button>
@@ -261,11 +276,7 @@
 
               
     <script>
-        function toggle_show() {
-         var content = document.getElementById("tt");
-         content.classList.toggle("show");    
-         }
-         
+        
          let login_but = function () {
         var loginButton = document.getElementById("login_bt");
         var loginWindow = document.getElementById("loginWindow");
@@ -280,13 +291,16 @@
     
 
     window.onload = function() {
-  var table = document.getElementById('materialsTable');
+
+        
+
+  var table1 = document.getElementById('materialsTable');
 
      fetch('https://testbyad.adaptable.app/material') 
     .then(response => response.json())
     .then(data => {
       data.forEach(material => {
-        var row = table.insertRow(-1);
+        var row = table1.insertRow(-1);
 
         var productCell = row.insertCell(0);
         productCell.innerHTML = `<td> <span class="product"> ${material.name_Material}</span></td>`;
@@ -303,22 +317,196 @@
         var Quantitycall = row.insertCell(4);
         Quantitycall.innerHTML = `<td> <span class="count"> ${material.Quantity}</span></td>`;
 
-        var actionsCell = row.insertCell(5);
-        actionsCell.innerHTML = '';
       });
-
     })
+
+     var table2 = document.getElementById('laboratoryTable');
+
+     fetch('https://testbyad.adaptable.app/laboratory') 
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(laboratory => {
+        var row = table2.insertRow(-1);
+
+        var name_laboratoryCell = row.insertCell(0);
+        name_laboratoryCell.innerHTML = `<td> <span class="namelaboratory"> ${laboratory.name_laboratory}</span></td>`;
+
+        var name_managerCell = row.insertCell(1);
+        name_managerCell.innerHTML = `<td> <span class="namemanager"> ${laboratory.name_manager}</span></td>`;
+
+        var phoneCell = row.insertCell(2);
+        phoneCell.innerHTML = `<td> <span class="phon"> ${laboratory.number_phon}</span></td>`;
+
+        var TitleCell = row.insertCell(3);
+        TitleCell.innerHTML = `<td> <span class="Tit"> ${laboratory.address}</span></td>`;
+
+        var passwordcall = row.insertCell(4);
+        passwordcall.innerHTML = `<td> <span class="pass"> ${laboratory.password}</span></td>`;
+
+      });
+    })
+
     }
-        
+                 let product1 = document.getElementById("product1").value;
+                 fetch('https://testbyad.adaptable.app/material') 
+                .then(response => response.json())
+                .then(data => {
+                var id_product1= null;
+               for (var i = 0; i < data.length; i++) {
+                 if (data[i].name_Material=== product1 ) {
+                    id_product1= data[i]._id;
+                    break;
+                }
+               }
+             })
          document.getElementById("add").addEventListener("click", function (event) {
                 event.preventDefault();
-                const product1 = document.getElementById("product1").value;
                 const Production_Date1 = document.getElementById("Production_Date1").value;
                 const Expiry_date1 = document.getElementById("Expiry_date1").value;
                 const price1 = document.getElementById("price1").value;
                 const Quantity1 = document.getElementById("Quantity1").value;
-                fetch(`https://testbyad.adaptable.app/material`, {
+                fetch(`https://testbyad.adaptable.app/material/${id_product1}`, {
                     method: 'POST',
+                    body: JSON.stringify({
+                        name_Material: product1,
+                        Production_Date: Expiry_date1,
+                        Expiry_date: Expiry_date1,
+                        Quantity: price1,
+                        price: Quantity1
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    }
+                })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            });
+            
+            let product2 = document.getElementById("product2").value;
+            fetch('https://testbyad.adaptable.app/material') 
+                .then(response => response.json())
+                .then(data => {
+                var id_product2= null;
+               for (var i = 0; i < data.length; i++) {
+                 if (data[i].name_Material=== product2 ) {
+                    id_product2= data[i]._id;
+                    break;
+                }
+               }
+             })
+            document.getElementById("delete").addEventListener("click", function (event) {
+                event.preventDefault();
+                fetch(`https://testbyad.adaptable.app/material/${id_product2}`, {
+                    method: 'DELETeE',
+                    body: JSON.stringify({
+                        
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    }
+                })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+                   setTimeout(() => {
+                    window.location.reload();
+                   }, 2000);
+            });
+             let product3 = document.getElementById("product2").value;
+                 fetch('https://testbyad.adaptable.app/material') 
+                .then(response => response.json())
+                .then(data => {
+                var id_product1= null;
+               for (var i = 0; i < data.length; i++) {
+                 if (data[i].name_Material=== product3 ) {
+                    id_product3= data[i]._id;
+                    break;
+                }
+               }
+             })
+            document.getElementById("edit").addEventListener("click", function (event) {
+                event.preventDefault();
+                const Production_Date3 = document.getElementById("Production_Date3").value;
+                const Expiry_date3 = document.getElementById("Expiry_date3").value;
+                const price3 = document.getElementById("price3").value;
+                const Quantity3 = document.getElementById("Quantity3").value;
+                fetch(`https://testbyad.adaptable.app/material/${id_product3}`, {
+                    method: 'PATCH',
+                    body: JSON.stringify({
+                        name_Material: product3,
+                        Production_Date: Expiry_date3,
+                        Expiry_date: Expiry_date3,
+                        Quantity: price3,
+                        price: Quantity3
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    }
+                })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            });
+
+
+             let name_laboratory1 = document.getElementById("name_laboratory1").value;
+                 fetch('https://testbyad.adaptable.app/material') 
+                .then(response => response.json())
+                .then(data => {
+                var id_name_laboratory1= null;
+               for (var i = 0; i < data.length; i++) {
+                 if (data[i].name_laboratory === name_laboratory1 ) {
+                    id_name_laboratory1= data[i]._id;
+                    break;
+                }
+               }
+             })
+            document.getElementById("add1").addEventListener("click", function (event) {
+                event.preventDefault();
+                const name_manager1= document.getElementById("name_manager1").value;
+                const phone1 = document.getElementById("phone").value;
+                const Title1 = document.getElementById("Title1").value;
+                const password1 = document.getElementById("password1").value;
+                fetch(`https://testbyad.adaptable.app/material/${id_name_laboratory1}`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        name_laboratory: name_laboratory1,
+                        name_manager: name_manager1,
+                        number_phon: phone1,
+                        address: Title1,
+                        password: password1
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    }
+                })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            });
+            
+            let name_laboratory2 = document.getElementById("name_laboratory2").value;
+            fetch('https://testbyad.adaptable.app/material') 
+                .then(response => response.json())
+                .then(data => {
+                var id_name_laboratory2= null;
+               for (var i = 0; i < data.length; i++) {
+                 if (data[i].name_laboratory=== name_laboratory2 ) {
+                    id_name_laboratory2= data[i]._id;
+                    break;
+                }
+               }
+             })
+            document.getElementById("delete1").addEventListener("click", function (event) {
+                event.preventDefault();
+                fetch(`https://testbyad.adaptable.app/material/${id_name_laboratory2}`, {
+                    method: 'DELETeE',
                     body: JSON.stringify({
                         
                     }),
@@ -332,13 +520,33 @@
                     window.location.reload();
                 }, 2000);
             });
-            document.getElementById("edet").addEventListener("click", function (event) {
+           
+            let name_laboratory3 = document.getElementById("name_laboratory2").value;
+                 fetch('https://testbyad.adaptable.app/material') 
+                .then(response => response.json())
+                .then(data => {
+                var id_name_laboratory1= null;
+               for (var i = 0; i < data.length; i++) {
+                 if (data[i].name_laboratory=== name_laboratory3 ) {
+                    id_name_laboratory3= data[i]._id;
+                    break;
+                }
+               }
+             })
+            document.getElementById("edit1").addEventListener("click", function (event) {
                 event.preventDefault();
-                const newname1 = document.getElementById("newname1").value;
-                fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`, {
+                const name_manager3= document.getElementById("name_manager3").value;
+                const phone3 = document.getElementById("phone3").value;
+                const Title3 = document.getElementById("Title3").value;
+                const password3 = document.getElementById("password3").value;
+                fetch(`https://testbyad.adaptable.app/material/${id_name_laboratory3}`, {
                     method: 'PATCH',
                     body: JSON.stringify({
-                        name_manager: newname1
+                        name_laboratory: name_laboratory3,
+                        name_manager: name_manager3,
+                        number_phon: phone3,
+                        address: Title3,
+                        password: password3
                     }),
                     headers: {
                         'Content-type': 'application/json; charset=UTF-8'
@@ -350,24 +558,8 @@
                     window.location.reload();
                 }, 2000);
             });
-            document.getElementById("delet").addEventListener("click", function (event) {
-                event.preventDefault();
-                const newname1 = document.getElementById("newname1").value;
-                fetch(`https://testbyad.adaptable.app/laboratory/${lab_Id}`, {
-                    method: 'PATCH',
-                    body: JSON.stringify({
-                        name_manager: newname1
-                    }),
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8'
-                    }
-                })
-                    .then((response) => response.json())
-                    .then((json) => console.log(json));
-                setTimeout(() => {
-                    window.location.reload();
-                }, 2000);
-            });
+
+
     </script>
 
 </body>

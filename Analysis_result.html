@@ -18,9 +18,10 @@
           <p>laboratory phone:<strong id="phone"></strong></p>
          </div>
         <div id="contact">
+            <p style="padding:10px; background-color:rgba(234, 235, 146, 0.753);"> Laboratory name :</p>
+            <p id="Laboratory_name"> </p> 
             <p style="padding:10px; background-color:rgba(234, 235, 146, 0.753);"> Laboratory manager :</p>
-            <p id="manager"> </p>
-           
+            <p id="manager"> </p> 
          </div>
          <div class="heavenly" id="heavenly"></div>
          <div class="color" id="orange"></div>
@@ -104,12 +105,14 @@ window.onload = function showItemInfo() {
   .then(data =>{
     const AnaPartanalysis_id = data.id_AnaPartanalysis;
     const manager = document.getElementById('manager');
+    const Laboratory_name = document.getElementById('Laboratory_name');
     const Laboratory_id = data.id_Laboratory;
     fetch(`https://testbyad.adaptable.app/laboratory/${Laboratory_id}`)
   .then(response => response.json())
   .then(data =>{
     manager.textContent = data.name_manager;
     phone.textContent = data.number_phon; 
+    Laboratory_name.textContent = data.name_laboratory;
    })
 
     fetch(`https://testbyad.adaptable.app/ana-partanalysis/${AnaPartanalysis_id}`)
@@ -181,7 +184,9 @@ window.onload = function showItemInfo() {
 }
 
 
-function printPage() { window.print();}
+function printPage() { 
+  window.print();
+}
 
 </script>
 
