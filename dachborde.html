@@ -71,7 +71,7 @@
                 <i class="fas fa-user"></i>
                 <div class="data">
                     <p>laboratory</p>
-                    <span>100</span>
+                    <span id="num_laboratory"></span>
                 </div>
 
             </div>
@@ -80,7 +80,7 @@
                 <i class="fas fa-table"></i>
                 <div class="data">
                     <p>Materials</p>
-                    <span>100</span>
+                    <span id="num_material"></span>
                 </div>
 
             </div>
@@ -292,16 +292,19 @@
 
     window.onload = function() {
 
-        
+   const number_material = document.getElementById('num_material');     
+   const number_laboratory = document.getElementById('num_laboratory');
 
   var table1 = document.getElementById('materialsTable');
-
+   
      fetch('https://testbyad.adaptable.app/material') 
     .then(response => response.json())
     .then(data => {
+        var num_material = null;
       data.forEach(material => {
-        var row = table1.insertRow(-1);
+        num_material++;
 
+        var row = table1.insertRow(-1);
         var productCell = row.insertCell(0);
         productCell.innerHTML = `<td> <span class="product"> ${material.name_Material}</span></td>`;
 
@@ -318,6 +321,7 @@
         Quantitycall.innerHTML = `<td> <span class="count"> ${material.Quantity}</span></td>`;
 
       });
+     number_material.textContent = num_material;
     })
 
      var table2 = document.getElementById('laboratoryTable');
@@ -325,7 +329,9 @@
      fetch('https://testbyad.adaptable.app/laboratory') 
     .then(response => response.json())
     .then(data => {
+        var num_laboratory = null;
       data.forEach(laboratory => {
+        num_laboratory++;
         var row = table2.insertRow(-1);
 
         var name_laboratoryCell = row.insertCell(0);
@@ -344,63 +350,100 @@
         passwordcall.innerHTML = `<td> <span class="pass"> ${laboratory.password}</span></td>`;
 
       });
-    })
+      number_laboratory.textContent = num_laboratory;
+     })
+    }   
+    document.getElementById("add1").addEventListener("click", function (event) {
+                event.preventDefault();
+                const name_labor = document.getElementById("name_laboratory1").value;
+                const name_mana = document.getElementById("name_manager1").value;
+                const phone = document.getElementById("phone1").value;
+                const Title = document.getElementById("Title1").value;
+                const pass = document.getElementById("password1").value;
+                
+                const newLaboratory = {
+                    name_laboratory: name_labor,
+                    name_manager: name_mana,
+                    number_phon: phone,
+                    address_details: Title,
+                    password: pass
+                    };
 
-    }
-                 let product1 = document.getElementById("product1").value;
-                 fetch('https://testbyad.adaptable.app/material') 
+                    fetch("https://testbyad.adaptable.app/laboratory", {
+                        method: 'POST',
+                        body: JSON.stringify(newLaboratory),
+                        headers: {
+                            'Content-type': 'application/json; charset=UTF-8'
+                        }
+                       }) 
+                        .then(response => response.json())
+                        .then(json => {
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 2000);
+                        })
+                        .catch(error => {
+                            console.error('حدث خطأ أثناء الطلب:', error);
+                        });
+         });
+
+
+
+         document.getElementById("edit1").addEventListener("click", function (event) {
+                event.preventDefault();
+                const name_labor = document.getElementById("name_laboratory2").value;
+                const name_mana = document.getElementById("name_manager2").value;
+                const phone = document.getElementById("phone2").value;
+                const Title = document.getElementById("Title2").value;
+                const pass = document.getElementById("password2").value;
+                fetch("https://testbyad.adaptable.app/laboratory") 
                 .then(response => response.json())
                 .then(data => {
-                var id_product1= null;
+                var id_laboratory= null;
                for (var i = 0; i < data.length; i++) {
-                 if (data[i].name_Material=== product1 ) {
-                    id_product1= data[i]._id;
+                 if (data[i].name_laboratory=== name_labor ) {
+                    id_laboratory= data[i]._id;
                     break;
                 }
                }
-             })
-         document.getElementById("add").addEventListener("click", function (event) {
-                event.preventDefault();
-                const Production_Date1 = document.getElementById("Production_Date1").value;
-                const Expiry_date1 = document.getElementById("Expiry_date1").value;
-                const price1 = document.getElementById("price1").value;
-                const Quantity1 = document.getElementById("Quantity1").value;
-                fetch(`https://testbyad.adaptable.app/material/${id_product1}`, {
-                    method: 'POST',
+                fetch(`https://testbyad.adaptable.app/laboratory/${id_laboratory}`, {
+                    method: 'PATCH',
                     body: JSON.stringify({
-                        name_Material: product1,
-                        Production_Date: Expiry_date1,
-                        Expiry_date: Expiry_date1,
-                        Quantity: price1,
-                        price: Quantity1
+                        name_laboratory: name_labor,
+                        name_manager: name_mana,
+                        number_phon: phone,
+                        address_details: Title,
+                         password: pass
                     }),
                     headers: {
                         'Content-type': 'application/json; charset=UTF-8'
                     }
                 })
+             })
                     .then((response) => response.json())
                     .then((json) => console.log(json));
-                setTimeout(() => {
+                   setTimeout(() => {
                     window.location.reload();
                 }, 2000);
             });
-            
-            let product2 = document.getElementById("product2").value;
-            fetch('https://testbyad.adaptable.app/material') 
+
+
+
+         document.getElementById("delete1").addEventListener("click", function (event) {
+                event.preventDefault();
+                const name_labor3 = document.getElementById("name_laboratory3").value;
+             fetch("https://testbyad.adaptable.app/laboratory") 
                 .then(response => response.json())
                 .then(data => {
-                var id_product2= null;
+                    var id_laboratory3= null;
                for (var i = 0; i < data.length; i++) {
-                 if (data[i].name_Material=== product2 ) {
-                    id_product2= data[i]._id;
+                 if (data[i].name_laboratory=== name_labor3) {
+                    id_laboratory3= data[i]._id;
                     break;
                 }
                }
-             })
-            document.getElementById("delete").addEventListener("click", function (event) {
-                event.preventDefault();
-                fetch(`https://testbyad.adaptable.app/material/${id_product2}`, {
-                    method: 'DELETeE',
+                fetch(`https://testbyad.adaptable.app/laboratory/${id_laboratory3}`, {
+                    method: 'DELETE',
                     body: JSON.stringify({
                         
                     }),
@@ -413,100 +456,101 @@
                    setTimeout(() => {
                     window.location.reload();
                    }, 2000);
+            })
             });
-             let product3 = document.getElementById("product2").value;
-                 fetch('https://testbyad.adaptable.app/material') 
+
+
+         document.getElementById("add").addEventListener("click", function (event) {
+                event.preventDefault();
+                const material = document.getElementById("product1").value;
+                const Production = document.getElementById("Production_Date1").value;
+                const Expiry = document.getElementById("Expiry_date1").value;
+                const Quant = document.getElementById("price1").value;
+                const pri = document.getElementById("Quantity1").value;
+                
+                const newMaterial = {
+                    name_Material: material,
+                    Production_Date: Production,
+                    Expiry_date: Expiry,
+                    Quantity: Quant,
+                    price: pri
+                    };
+
+                    fetch("https://testbyad.adaptable.app/material", {
+                        method: 'POST',
+                        body: JSON.stringify(newMaterial),
+                        headers: {
+                            'Content-type': 'application/json; charset=UTF-8'
+                        }
+                       }) 
+                        .then(response => response.json())
+                        .then(json => {
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 2000);
+                        })
+                        .catch(error => {
+                            console.error('حدث خطأ أثناء الطلب:', error);
+                        });
+         });
+
+         
+
+         document.getElementById("edit").addEventListener("click", function (event) {
+                event.preventDefault();
+                const material2 = document.getElementById("product2").value;
+                const Production2 = document.getElementById("Production_Date2").value;
+                const Expiry2 = document.getElementById("Expiry_date2").value;
+                const Quant2 = document.getElementById("price2").value;
+                const pri2 = document.getElementById("Quantity2").value;
+                fetch("https://testbyad.adaptable.app/material") 
                 .then(response => response.json())
                 .then(data => {
-                var id_product1= null;
+                var id_product2= null;
                for (var i = 0; i < data.length; i++) {
-                 if (data[i].name_Material=== product3 ) {
+                 if (data[i].name_Material=== material2 ) {
+                    id_product2= data[i]._id;
+                    break;
+                }
+               }
+                fetch(`https://testbyad.adaptable.app/material/${id_product2}`, {
+                    method: 'PATCH',
+                    body: JSON.stringify({
+                         name_Material: material2,
+                         Production_Date: Production2,
+                         Expiry_date: Expiry2,
+                         Quantity: Quant2,
+                         price: pri2
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    }
+                })
+             })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+                   setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            });
+
+
+
+         document.getElementById("delete").addEventListener("click", function (event) {
+                event.preventDefault();
+                const prod3 = document.getElementById("product3").value;
+             fetch('https://testbyad.adaptable.app/material') 
+                .then(response => response.json())
+                .then(data => {
+                var id_product3= null;
+               for (var i = 0; i < data.length; i++) {
+                 if (data[i].name_Material=== prod3 ) {
                     id_product3= data[i]._id;
                     break;
                 }
                }
-             })
-            document.getElementById("edit").addEventListener("click", function (event) {
-                event.preventDefault();
-                const Production_Date3 = document.getElementById("Production_Date3").value;
-                const Expiry_date3 = document.getElementById("Expiry_date3").value;
-                const price3 = document.getElementById("price3").value;
-                const Quantity3 = document.getElementById("Quantity3").value;
                 fetch(`https://testbyad.adaptable.app/material/${id_product3}`, {
-                    method: 'PATCH',
-                    body: JSON.stringify({
-                        name_Material: product3,
-                        Production_Date: Expiry_date3,
-                        Expiry_date: Expiry_date3,
-                        Quantity: price3,
-                        price: Quantity3
-                    }),
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8'
-                    }
-                })
-                    .then((response) => response.json())
-                    .then((json) => console.log(json));
-                setTimeout(() => {
-                    window.location.reload();
-                }, 2000);
-            });
-
-
-             let name_laboratory1 = document.getElementById("name_laboratory1").value;
-                 fetch('https://testbyad.adaptable.app/material') 
-                .then(response => response.json())
-                .then(data => {
-                var id_name_laboratory1= null;
-               for (var i = 0; i < data.length; i++) {
-                 if (data[i].name_laboratory === name_laboratory1 ) {
-                    id_name_laboratory1= data[i]._id;
-                    break;
-                }
-               }
-             })
-            document.getElementById("add1").addEventListener("click", function (event) {
-                event.preventDefault();
-                const name_manager1= document.getElementById("name_manager1").value;
-                const phone1 = document.getElementById("phone").value;
-                const Title1 = document.getElementById("Title1").value;
-                const password1 = document.getElementById("password1").value;
-                fetch(`https://testbyad.adaptable.app/material/${id_name_laboratory1}`, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        name_laboratory: name_laboratory1,
-                        name_manager: name_manager1,
-                        number_phon: phone1,
-                        address: Title1,
-                        password: password1
-                    }),
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8'
-                    }
-                })
-                    .then((response) => response.json())
-                    .then((json) => console.log(json));
-                setTimeout(() => {
-                    window.location.reload();
-                }, 2000);
-            });
-            
-            let name_laboratory2 = document.getElementById("name_laboratory2").value;
-            fetch('https://testbyad.adaptable.app/material') 
-                .then(response => response.json())
-                .then(data => {
-                var id_name_laboratory2= null;
-               for (var i = 0; i < data.length; i++) {
-                 if (data[i].name_laboratory=== name_laboratory2 ) {
-                    id_name_laboratory2= data[i]._id;
-                    break;
-                }
-               }
-             })
-            document.getElementById("delete1").addEventListener("click", function (event) {
-                event.preventDefault();
-                fetch(`https://testbyad.adaptable.app/material/${id_name_laboratory2}`, {
-                    method: 'DELETeE',
+                    method: 'DELETE',
                     body: JSON.stringify({
                         
                     }),
@@ -516,49 +560,11 @@
                 })
                     .then((response) => response.json())
                     .then((json) => console.log(json));
-                setTimeout(() => {
+                   setTimeout(() => {
                     window.location.reload();
-                }, 2000);
+                   }, 2000);
+            })
             });
-           
-            let name_laboratory3 = document.getElementById("name_laboratory2").value;
-                 fetch('https://testbyad.adaptable.app/material') 
-                .then(response => response.json())
-                .then(data => {
-                var id_name_laboratory1= null;
-               for (var i = 0; i < data.length; i++) {
-                 if (data[i].name_laboratory=== name_laboratory3 ) {
-                    id_name_laboratory3= data[i]._id;
-                    break;
-                }
-               }
-             })
-            document.getElementById("edit1").addEventListener("click", function (event) {
-                event.preventDefault();
-                const name_manager3= document.getElementById("name_manager3").value;
-                const phone3 = document.getElementById("phone3").value;
-                const Title3 = document.getElementById("Title3").value;
-                const password3 = document.getElementById("password3").value;
-                fetch(`https://testbyad.adaptable.app/material/${id_name_laboratory3}`, {
-                    method: 'PATCH',
-                    body: JSON.stringify({
-                        name_laboratory: name_laboratory3,
-                        name_manager: name_manager3,
-                        number_phon: phone3,
-                        address: Title3,
-                        password: password3
-                    }),
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8'
-                    }
-                })
-                    .then((response) => response.json())
-                    .then((json) => console.log(json));
-                setTimeout(() => {
-                    window.location.reload();
-                }, 2000);
-            });
-
 
     </script>
 
