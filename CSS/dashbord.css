@@ -176,26 +176,31 @@ th{
     border-radius: 6px;
 }
 
-.price , .Tit{
-background-color: rgb(100, 211, 100);
+.price , .Tit ,.Title{
+background-color: rgb(150 223 150);
 height: 25px;
 width: 50%;
 }
-.Quantity , .pass , .count {
-background-color: rgb(228, 228, 75);
+.price{
+    height: 15px; 
+}
+.Quantity , .password , .pass , .count {
+background-color: rgb(224, 224, 101);
 height: 25px;
 width: 60%;
 }
-.product , .Production_Date , .Expiry_date , .phone , .name_manager , .name_laboratory {
- height: 25px; 
-}
 
-#dash p, #materia p, #labora p{
+#dash p , #materia p , #labora p{
     font-size: larger;
     color: #dee1ee;
     font-family: cursive;
 }
 
+input.product, input.Production_Date, input.Expiry_date , input.name_laboratory , input.name_manager , input.phone{
+
+    background-color: rgb(188, 190, 192);
+    height: 20px; 
+    }
 
   /* login */
 
@@ -326,9 +331,5 @@ width: 60%;
     color: #040717;
     box-shadow: 0 0 10px #00ccff;
   }
-  input.product, input.Production_Date, input.Expiry_date{
-
-background-color: rgb(188, 190, 192);
-
-}
+ 
  
