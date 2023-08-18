@@ -170,7 +170,7 @@
                 <th>Production_Date</th>
                 <th>price</th>
                 <th>count</th>
-                <th>price-offer</th>
+               
             </tr>
         </thead> 
         </table>
@@ -237,7 +237,7 @@
             placeholder="الاسم القديم"
             class="input_text"
             autocomplete="off"
-            id="username"
+            id="oldusername"
             >
         
         </div>
@@ -247,7 +247,7 @@
             placeholder="الاسم الجديد"
             class="input_text"
             autocomplete="off"
-            id="username"
+            id="newusername"
             >
             </div>
         <div class="input_group"><i class="fa-solid fa-unlock" style="color: #00ccff;"></i>
@@ -256,7 +256,7 @@
             placeholder="  كلمة المرور القديمة  "
             class="input_text"
             autocomplete="off"
-            id="password"
+            id="oldpassword"
             >
         </div>
         <div class="input_group"><i class="fa-solid fa-unlock" style="color: #00ccff;"></i>
@@ -265,7 +265,7 @@
             placeholder="كلمة المرور الجديدة  "
             class="input_text"
             autocomplete="off"
-            id="password"
+            id="newpassword"
             >
         </div>
         <button class="button_group" id="login_butt" type="button" onclick="dash()">تعديل</button>
@@ -292,7 +292,22 @@
         loginWindowClose.addEventListener("click", function() {
         loginWindow.style.visibility = "hidden"; 
         });
+        const oldusername = document.getElementById('oldusername');
+        const oldpassword = document.getElementById('oldpassword');
+        fetch(`https://testbyad.adaptable.app/employee/64dfdb227ce27c25a24a968d`)
+        .then(response => response.json())
+        .then(data =>{
+            oldusername.textContent = data.name;
+            oldpassword.textContent = data.password;
+        })
     }
+
+    // function updateManager(){
+    //     const newusername = document.getElementById('newusername').value;
+    //     const newpassword = document.getElementById('newpassword').value;
+
+    //     fetch("https://testbyad.adaptable.app/employee")
+    // }
     
 
     window.onload = function() {
@@ -300,6 +315,8 @@
    const number_material = document.getElementById('num_material');     
    const number_laboratory = document.getElementById('num_laboratory');
    const num_revenue = document.getElementById('revenue');
+   
+
    var number_revenue = null;
    fetch('https://testbyad.adaptable.app/order')
    .then(response => response.json())
