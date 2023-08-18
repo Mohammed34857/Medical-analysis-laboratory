@@ -26,15 +26,15 @@
                     <p>dashborde</p>
                 </a>
             </li>
-            <li>
+            <li onclick="showLaboratory()">
                 <a href="#labora" >
-                  <button class="btn"  onclick=" toggle_show()" > <i class="fas fa-user-group" ></i></button>
+                  <button class="btn" > <i class="fas fa-user-group" ></i></button>
                     <p>laboratory</p>
             
                 </a>
             </li>
         
-            <li>
+            <li onclick="showMaterial()">
                 <a href="#materia">
                     <i class="fas fa-table"></i>
                     <p>Materials</p>
@@ -66,7 +66,7 @@
 
         </div>
 
-        <div class="data-info">
+        <div class="data-info" >
             <div class="box">
                 <i class="fas fa-user"></i>
                 <div class="data">
@@ -76,7 +76,7 @@
 
             </div>
           
-            <div class="box">
+            <div class="box" >
                 <i class="fas fa-table"></i>
                 <div class="data">
                     <p>Materials</p>
@@ -87,12 +87,11 @@
             <div class="box">
                 <i class="fas fa-dollar"></i>
                 <div class="data">
-                    <p>revenue</p>
-                    <span>$1225</span>
+                    <p>revenue <br> $ <span id="revenue"></span></p>
+                  
                 </div>
-
+              </div>
             </div>
-        </div>
 
           <div id="labora" class="title-info">
             <p>Laboratory</p>
@@ -294,14 +293,58 @@
 
    const number_material = document.getElementById('num_material');     
    const number_laboratory = document.getElementById('num_laboratory');
+   const num_revenue = document.getElementById('revenue');
+   var number_revenue = null;
+   fetch('https://testbyad.adaptable.app/order')
+   .then(response => response.json())
+   .then(data =>{
+      data.forEach(reven => {
+        number_revenue+= reven.price * 0.1 ;
+      })
+      num_revenue.textContent =  number_revenue ;
+   })
+    }
 
-  var table1 = document.getElementById('materialsTable');
-   
-     fetch('https://testbyad.adaptable.app/material') 
-    .then(response => response.json())
-    .then(data => {
+        function showLaboratory(){
+        
+         var table2 = document.getElementById('laboratoryTable');
+            fetch('https://testbyad.adaptable.app/laboratory') 
+            .then(response => response.json())
+             .then(data => {
+         var num_laboratory = null;
+         data.forEach(laboratory => {
+         num_laboratory++;
+         var row = table2.insertRow(-1);
+
+         var name_laboratoryCell = row.insertCell(0);
+         name_laboratoryCell.innerHTML = `<td> <span class="namelaboratory"> ${laboratory.name_laboratory}</span></td>`;
+
+         var name_managerCell = row.insertCell(1);
+         name_managerCell.innerHTML = `<td> <span class="namemanager"> ${laboratory.name_manager}</span></td>`;
+
+         var phoneCell = row.insertCell(2);
+         phoneCell.innerHTML = `<td> <span class="phon"> ${laboratory.number_phon}</span></td>`;
+
+         var TitleCell = row.insertCell(3);
+         TitleCell.innerHTML = `<td> <span class="Tit"> ${laboratory.address}</span></td>`;
+
+         var passwordcall = row.insertCell(4);
+         passwordcall.innerHTML = `<td> <span class="pass"> ${laboratory.password}</span></td>`;
+
+          });
+         number_laboratory.textContent = num_laboratory;
+         })
+        }   
+      
+
+
+         function showMaterial(){
+            var table1 = document.getElementById('materialsTable');
+          fetch('https://testbyad.adaptable.app/material') 
+         .then(response => response.json())
+         .then(data => {
         var num_material = null;
-      data.forEach(material => {
+        data.forEach(material => {
         num_material++;
 
         var row = table1.insertRow(-1);
@@ -320,39 +363,11 @@
         var Quantitycall = row.insertCell(4);
         Quantitycall.innerHTML = `<td> <span class="count"> ${material.Quantity}</span></td>`;
 
-      });
-     number_material.textContent = num_material;
-    })
+         });
+        number_material.textContent = num_material;
+        })         
+    }
 
-     var table2 = document.getElementById('laboratoryTable');
-
-     fetch('https://testbyad.adaptable.app/laboratory') 
-    .then(response => response.json())
-    .then(data => {
-        var num_laboratory = null;
-      data.forEach(laboratory => {
-        num_laboratory++;
-        var row = table2.insertRow(-1);
-
-        var name_laboratoryCell = row.insertCell(0);
-        name_laboratoryCell.innerHTML = `<td> <span class="namelaboratory"> ${laboratory.name_laboratory}</span></td>`;
-
-        var name_managerCell = row.insertCell(1);
-        name_managerCell.innerHTML = `<td> <span class="namemanager"> ${laboratory.name_manager}</span></td>`;
-
-        var phoneCell = row.insertCell(2);
-        phoneCell.innerHTML = `<td> <span class="phon"> ${laboratory.number_phon}</span></td>`;
-
-        var TitleCell = row.insertCell(3);
-        TitleCell.innerHTML = `<td> <span class="Tit"> ${laboratory.address}</span></td>`;
-
-        var passwordcall = row.insertCell(4);
-        passwordcall.innerHTML = `<td> <span class="pass"> ${laboratory.password}</span></td>`;
-
-      });
-      number_laboratory.textContent = num_laboratory;
-     })
-    }   
     document.getElementById("add1").addEventListener("click", function (event) {
                 event.preventDefault();
                 const name_labor = document.getElementById("name_laboratory1").value;

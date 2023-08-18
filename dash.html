@@ -196,38 +196,26 @@
 
             </div>
             <div>
-                <table>
+                <table id="tableMaterial">
 
                     <thead>
                         <tr>
                             <th>اسم-المادة</th>
-
                             <th>الكمية</th>
-
                         </tr>
                     </thead>
-                    <tbody>
+                    <!-- <tbody>
                         <tr>
                             <td>ALBUMIN-BCG</td>
                             <td>300g</td>
-
-
-
                         </tr>
                         <tr>
                             <td>ALBUMIN-BCG</td>
                             <td>100g</td>
-
-
-
                         </tr>
-
-
-
-
-
-                    </tbody>
+                    </tbody> -->
                 </table>
+
             </div>
         </section>
 
@@ -311,6 +299,29 @@
                         oldname3.value = data.number_phon;
                         oldAnalysis.value = data.analysis_existing;
                     })
+
+
+           const table = document.getElementById("tableMaterial")
+               fetch("https://testbyad.adaptable.app/order")
+               .then(response => response.json())
+               .then(data => {
+                const material = data.filter(mat => mat.id_laboratory === lab_Id)
+                material.forEach(element => {
+                   const id_material = element.id_Material;
+                    fetch(`https://testbyad.adaptable.app/material/${id_material}`)
+                    .then(response => response.json())
+                    .then(data => {
+                     var name = data.name_Material;
+                     var quant = data.Quantity;
+                     var row = table.insertRow(-1);
+                     var nameCall = row.insertCall(0);
+                     nameCall.innerHTML = `<td> <span> ${name} </span> </td>`;
+                     var quantityCall = row.insertCall(1);
+                     quantityCall.innerHTML = `<td> <span> ${quant} </span> </td>`;
+                    })
+                });
+               })
+
             }
             document.getElementById("login_butt1").addEventListener("click", function (event) {
                 event.preventDefault();
@@ -369,6 +380,10 @@
 
             let pric;
             let id_material;
+            const currentDate = new Date();
+            const formattedDate = currentDate.toISOString();
+            const urlParams = new URLSearchParams(window.location.search);
+            const  laboratory_Id = urlParams.get('id');
             document.getElementById("login_butt4").addEventListener("click", function (event) {
                 event.preventDefault();
                 const material = document.getElementById("material").value;
@@ -386,11 +401,13 @@
                         }
                     })
                 const amount = document.getElementById("amount").value;
+                console.log(laboratory_Id);
                 if (id_material) {
                     const newOrder = {
-                        id_laboratory: lab_Id,
+                        id_laboratory:laboratory_Id,
                         id_Material: id_material,
                         Quantity: amount,
+                        order_date: formattedDate,
                         price: amount * pric
                     };
                     fetch("https://testbyad.adaptable.app/order", {
@@ -430,6 +447,10 @@
                     window.location.reload();
                 }, 2000);
             });
+
+
+
+
         </script>
 </body>
 
