@@ -345,6 +345,47 @@
 
     window.onload = function() {
 
+        var amountTable = document.getElementById('amount-Table');
+        var currentDate = new Date();
+            fetch('https://testbyad.adaptable.app/order') 
+            .then(response => response.json())
+             .then(data => {
+         data.forEach(order => {
+            var order_date = order.order_date;
+            if(currentDate.getFullYear() === order_date.getFullYear()){
+
+         laboratory_id = order.id_Laboratory ;
+         fetch(`https://testbyad.adaptable.app/laboratory/${laboratory_id}`)
+         .then(response => response.json())
+             .then(data => {
+                nameLaboratory = data.name_laboratory;
+
+         material_id = order.id_Material ;
+         fetch(`https://testbyad.adaptable.app/material/${material_id}`)
+         .then(response => response.json())
+             .then(data => {
+                nameMaterial = data.name_Material; 
+                
+         var row = amountTable.insertRow(-1);
+
+         var name_laboratoryCell = row.insertCell(0);
+         name_laboratoryCell.innerHTML = `<td> <span class="namelaboratory"> ${nameLaboratory}</span></td>`;
+
+         var name_MaterialCell = row.insertCell(1);
+         name_MaterialCell.innerHTML = `<td> <span class="namematerial"> ${nameMaterial}</span></td>`;
+
+         var QuantityCell = row.insertCell(2);
+         QuantityCell.innerHTML = `<td> <span class="Quantity"> ${order.Quantity}</span></td>`;
+
+         var order_dateCell = row.insertCell(3);
+         order_dateCell.innerHTML = `<td> <span class="order_date"> ${order.order_date}</span></td>`;
+            })
+           })
+        }
+          });
+         })
+        
+
    const number_material = document.getElementById('num_material');     
    const number_laboratory = document.getElementById('num_laboratory');
    const num_revenue = document.getElementById('revenue');
@@ -410,13 +451,13 @@
 
 
          function showMaterial(){
-            var table1 = document.getElementById('materialsTable');
+            var materialsTable = document.getElementById('materialsTable');
           fetch('https://testbyad.adaptable.app/material') 
          .then(response => response.json())
          .then(data => {
         data.forEach(material => {
         
-        var row = table1.insertRow(-1);
+        var row = materialsTable.insertRow(-1);
         var productCell = row.insertCell(0);
         productCell.innerHTML = `<td> <span class="product"> ${material.name_Material}</span></td>`;
 
@@ -599,14 +640,16 @@
                     break;
                 }
                }
+               console.log(id_material+product2+Production_Date2+Expiry_date2+price2+Quantity2+price_offer2)
                 fetch(`https://testbyad.adaptable.app/material/${id_material}`, {
                     method: 'PATCH',
                     body: JSON.stringify({
-                        name_laboratory: name_labor,
-                        name_manager: name_mana,
-                        number_phon: phone,
-                        address_details: Title,
-                         password: pass
+                        name_Material: product2,
+                        Production_Date: Production_Date2,
+                        Expiry_date: Expiry_date2,
+                        Quantity: price2,
+                        price: Quantity2,
+                        price_offer: price_offer2
                     }),
                     headers: {
                         'Content-type': 'application/json; charset=UTF-8'
@@ -615,9 +658,9 @@
              })
                     .then((response) => response.json())
                     .then((json) => console.log(json));
-                   setTimeout(() => {
-                    window.location.reload();
-                }, 2000);
+                //    setTimeout(() => {
+                //     window.location.reload();
+                // }, 2000);
             });
          
 

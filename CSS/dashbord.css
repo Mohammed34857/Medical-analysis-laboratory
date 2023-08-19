@@ -186,9 +186,11 @@ width: 50%;
 }
 .Quantity , .password , .pass , .count {
 background-color: rgb(224, 224, 101);
+padding: -1px;
 height: 25px;
 width: 60%;
 }
+
 
 #dash p , #materia p , #labora p , #Amount p{
     font-size: larger;
