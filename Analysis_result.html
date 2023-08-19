@@ -34,7 +34,8 @@
         <div id="container">
            <p>Doctor : <strong id="Doctor"> </strong></p>
            <p>Patient : <strong id="Patient"> </strong></p>
-           <p>date : <strong id="date"> </strong></p>
+           <p>Referral date : <strong id="Referral_date"> </strong></p>
+           <p>Result date : <strong id="Result_date"> </strong></p>
         </div>
        
     </div>
@@ -63,13 +64,14 @@ window.onload = function showItemInfo() {
     const analysis_demand_id= urlParams.get('id');
     const doctor = document.getElementById("Doctor");
     const patient = document.getElementById("Patient");
-    const date = document.getElementById("date");
+    const Referral_date = document.getElementById("Referral_date");
+    const Result_date = document.getElementById("Result_date");
     const phone = document.getElementById("phone");
     const employee= document.getElementById("employee");
   fetch(`https://testbyad.adaptable.app/analysis-demand/${analysis_demand_id}`)  
   .then(response => response.json())
   .then(data => {
-    date.textContent = data.date_analays;
+    Result_date.textContent = data.date_analays;
     const LabAnaPartana_id = data.id_LabAnaPartana;
     const Medical_referral_id = data.id_MedicalReferral;   
     const employee_id = data.id_Employee; 
@@ -80,6 +82,7 @@ window.onload = function showItemInfo() {
   fetch(`https://testbyad.adaptable.app/medical-referral/${Medical_referral_id}`)
   .then(response => response.json())
   .then(data => {
+    Referral_date.textContent = data.medref_date;
    const doctor_id = data.id_Doctor;
    const patient_id = data.id_Patient;
    fetch(`https://testbyad.adaptable.app/patient/${patient_id}`)
