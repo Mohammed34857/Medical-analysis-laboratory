@@ -207,7 +207,7 @@
             <td><input type="text" id="Expiry_date2" class="Expiry_date" ></td>
             <td><input type="text" id="price2" class="price" ></td>
             <td><input type="text" id="Quantity2" class="Quantity" > </td>
-            <td><input type="text" id="price-offer2" class="price-offer" > </td>
+            <td><input type="text" id="price_offer2" class="price_offer" > </td>
             <td>
                   <i class="fas fa-pen"></i>
                   <button id="edit" class="edit">edit</button>
@@ -563,36 +563,32 @@
                             console.error('حدث خطأ أثناء الطلب:', error);
                         });
          });
-
-         
-
          document.getElementById("edit").addEventListener("click", function (event) {
                 event.preventDefault();
-                const material2 = document.getElementById("product2").value;
-                const Production2 = document.getElementById("Production_Date2").value;
-                const Expiry2 = document.getElementById("Expiry_date2").value;
+                const product2 = document.getElementById("product2").value;
+                const Production_Date2 = document.getElementById("Production_Date2").value;
+                const Expiry_date2 = document.getElementById("Expiry_date2").value;
                 const price2 = document.getElementById("price2").value;
-                const Quant2 = document.getElementById("Quantity2").value;
-                const priceOffer2 = document.getElementById("price-offer2").value;
+                const Quantity2= document.getElementById("Quantity2").value;
+                const price_offer2= document.getElementById("price_offer2").value;
                 fetch("https://testbyad.adaptable.app/material") 
                 .then(response => response.json())
                 .then(data => {
-                var id_product2= null;
+                var id_material= null;
                for (var i = 0; i < data.length; i++) {
-                 if (data[i].name_Material=== material2 ) {
-                    id_product2= data[i]._id;
+                 if (data[i].name_Material=== product2 ) {
+                    id_material= data[i]._id;
                     break;
                 }
                }
-                fetch(`https://testbyad.adaptable.app/material/${id_product2}`, {
+                fetch(`https://testbyad.adaptable.app/material/${id_material}`, {
                     method: 'PATCH',
                     body: JSON.stringify({
-                         name_Material: material2,
-                         Production_Date: Production2,
-                         Expiry_date: Expiry2,
-                         Quantity: Quant2,
-                         price: price2,
-                         price_offer:priceOffer2
+                        name_laboratory: name_labor,
+                        name_manager: name_mana,
+                        number_phon: phone,
+                        address_details: Title,
+                         password: pass
                     }),
                     headers: {
                         'Content-type': 'application/json; charset=UTF-8'
@@ -605,6 +601,47 @@
                     window.location.reload();
                 }, 2000);
             });
+         
+
+        //  document.getElementById("edit").addEventListener("click", function (event) {
+        //         event.preventDefault();
+        //         const material2 = document.getElementById("product2").value;
+        //         const Production2 = document.getElementById("Production_Date2").value;
+        //         const Expiry2 = document.getElementById("Expiry_date2").value;
+        //         const price2 = document.getElementById("price2").value;
+        //         const Quant2 = document.getElementById("Quantity2").value;
+        //         const priceOffer2 = document.getElementById("price-offer2").value;
+        //         fetch("https://testbyad.adaptable.app/material") 
+        //         .then(response => response.json())
+        //         .then(data => {
+        //         var id_product2= null;
+        //        for (var i = 0; i < data.length; i++) {
+        //          if (data[i].name_Material=== material2 ) {
+        //             id_product2= data[i]._id;
+        //             break;
+        //         }
+        //        }
+        //         fetch(`https://testbyad.adaptable.app/material/${id_product2}`, {
+        //             method: 'PATCH',
+        //             body: JSON.stringify({
+        //                  name_Material: material2,
+        //                  Production_Date: Production2,
+        //                  Expiry_date: Expiry2,
+        //                  Quantity: Quant2,
+        //                  price: price2,
+        //                  price_offer:priceOffer2
+        //             }),
+        //             headers: {
+        //                 'Content-type': 'application/json; charset=UTF-8'
+        //             }
+        //         })
+        //      })
+        //             .then((response) => response.json())
+        //             .then((json) => console.log(json));
+        //            setTimeout(() => {
+        //             window.location.reload();
+        //         }, 2000);
+        //     });
 
 
 
