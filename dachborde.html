@@ -170,6 +170,7 @@
                 <th>Production_Date</th>
                 <th>price</th>
                 <th>count</th>
+                <th>price-offer</th>
                
             </tr>
         </thead> 
@@ -268,7 +269,7 @@
             id="newpassword"
             >
         </div>
-        <button class="button_group" id="login_butt" type="button" onclick="dash()">تعديل</button>
+        <button class="button_group" id="login_butt" type="button" onclick="updateManager()">تعديل</button>
      
        </form>
     </div>
@@ -294,20 +295,34 @@
         });
         const oldusername = document.getElementById('oldusername');
         const oldpassword = document.getElementById('oldpassword');
-        fetch(`https://testbyad.adaptable.app/employee/64dfdb227ce27c25a24a968d`)
+        fetch("https://testbyad.adaptable.app/employee/64dfdb227ce27c25a24a968d")
         .then(response => response.json())
         .then(data =>{
-            oldusername.textContent = data.name;
-            oldpassword.textContent = data.password;
+            oldusername.value = data.name;
+            oldpassword.value = data.password;
         })
     }
 
-    // function updateManager(){
-    //     const newusername = document.getElementById('newusername').value;
-    //     const newpassword = document.getElementById('newpassword').value;
-
-    //     fetch("https://testbyad.adaptable.app/employee")
-    // }
+    function updateManager(){
+        const newusername = document.getElementById('newusername').value;
+        const newpassword = document.getElementById('newpassword').value;
+        fetch(`https://testbyad.adaptable.app/employee/64dfdb227ce27c25a24a968d`,{
+                 method: 'PATCH',
+                    body: JSON.stringify({
+                        name: newusername,
+                        password: newpassword
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    }
+                })
+                .then((response) => response.json())
+                .then((json) => console.log(json));
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            }
+    
     
 
     window.onload = function() {
@@ -319,13 +334,31 @@
 
    var number_revenue = null;
    fetch('https://testbyad.adaptable.app/order')
-   .then(response => response.json())
-   .then(data =>{
-      data.forEach(reven => {
+        .then(response => response.json())
+        .then(data =>{
+         data.forEach(reven => {
         number_revenue+= reven.price * 0.1 ;
-      })
+       })
       num_revenue.textContent =  number_revenue ;
    })
+   fetch('https://testbyad.adaptable.app/laboratory') 
+            .then(response => response.json())
+             .then(data => {
+                var num_laboratory = null;
+                data.forEach(laboratory => {
+                num_laboratory++;
+              });
+              number_laboratory.textContent = num_laboratory;
+             })
+   fetch('https://testbyad.adaptable.app/material') 
+         .then(response => response.json())
+         .then(data => {
+            var num_material = null;
+            data.forEach(material => {
+            num_material++;
+         });
+        number_material.textContent = num_material;
+        })          
     }
 
         function showLaboratory(){
@@ -334,9 +367,7 @@
             fetch('https://testbyad.adaptable.app/laboratory') 
             .then(response => response.json())
              .then(data => {
-         var num_laboratory = null;
          data.forEach(laboratory => {
-         num_laboratory++;
          var row = table2.insertRow(-1);
 
          var name_laboratoryCell = row.insertCell(0);
@@ -355,7 +386,6 @@
          passwordcall.innerHTML = `<td> <span class="pass"> ${laboratory.password}</span></td>`;
 
           });
-         number_laboratory.textContent = num_laboratory;
          })
         }   
       
@@ -366,10 +396,8 @@
           fetch('https://testbyad.adaptable.app/material') 
          .then(response => response.json())
          .then(data => {
-        var num_material = null;
         data.forEach(material => {
-        num_material++;
-
+        
         var row = table1.insertRow(-1);
         var productCell = row.insertCell(0);
         productCell.innerHTML = `<td> <span class="product"> ${material.name_Material}</span></td>`;
@@ -386,8 +414,10 @@
         var Quantitycall = row.insertCell(4);
         Quantitycall.innerHTML = `<td> <span class="count"> ${material.Quantity}</span></td>`;
 
+        var price_offercall = row.insertCell(5);
+        price_offercall.innerHTML = `<td> <span class="count"> ${material.price_offer}</span></td>`;
+
          });
-        number_material.textContent = num_material;
         })         
     }
 
@@ -503,15 +533,17 @@
                 const material = document.getElementById("product1").value;
                 const Production = document.getElementById("Production_Date1").value;
                 const Expiry = document.getElementById("Expiry_date1").value;
-                const Quant = document.getElementById("price1").value;
-                const pri = document.getElementById("Quantity1").value;
-                
+                const price = document.getElementById("price1").value;
+                const Quant = document.getElementById("Quantity1").value;
+                const priceOffer1 = document.getElementById("price-offer1").value;
+
                 const newMaterial = {
                     name_Material: material,
                     Production_Date: Production,
                     Expiry_date: Expiry,
                     Quantity: Quant,
-                    price: pri
+                    price: price,
+                    price_offer:priceOffer1
                     };
 
                     fetch("https://testbyad.adaptable.app/material", {
@@ -539,8 +571,9 @@
                 const material2 = document.getElementById("product2").value;
                 const Production2 = document.getElementById("Production_Date2").value;
                 const Expiry2 = document.getElementById("Expiry_date2").value;
-                const Quant2 = document.getElementById("price2").value;
-                const pri2 = document.getElementById("Quantity2").value;
+                const price2 = document.getElementById("price2").value;
+                const Quant2 = document.getElementById("Quantity2").value;
+                const priceOffer2 = document.getElementById("price-offer2").value;
                 fetch("https://testbyad.adaptable.app/material") 
                 .then(response => response.json())
                 .then(data => {
@@ -558,7 +591,8 @@
                          Production_Date: Production2,
                          Expiry_date: Expiry2,
                          Quantity: Quant2,
-                         price: pri2
+                         price: price2,
+                         price_offer:priceOffer2
                     }),
                     headers: {
                         'Content-type': 'application/json; charset=UTF-8'
