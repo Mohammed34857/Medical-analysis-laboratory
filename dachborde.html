@@ -351,7 +351,7 @@
             .then(response => response.json())
              .then(data => {
          data.forEach(order => {
-            var order_date = order.order_date;
+            var order_date = new Date(order.order_date);
             if(currentDate.getFullYear() === order_date.getFullYear()){
 
          laboratory_id = order.id_Laboratory ;
@@ -375,13 +375,13 @@
          name_MaterialCell.innerHTML = `<td> <span class="namematerial"> ${nameMaterial}</span></td>`;
 
          var QuantityCell = row.insertCell(2);
-         QuantityCell.innerHTML = `<td> <span class="Quantity"> ${order.Quantity}</span></td>`;
+         QuantityCell.innerHTML = `<td> <span class="Quan"> ${order.Quantity}</span></td>`;
 
          var order_dateCell = row.insertCell(3);
          order_dateCell.innerHTML = `<td> <span class="order_date"> ${order.order_date}</span></td>`;
             })
            })
-        }
+           }
           });
          })
         
@@ -622,26 +622,37 @@
                             console.error('حدث خطأ أثناء الطلب:', error);
                         });
          });
-         document.getElementById("edit").addEventListener("click", function (event) {
-                event.preventDefault();
-                const product2 = document.getElementById("product2").value;
-                const Production_Date2 = document.getElementById("Production_Date2").value;
-                const Expiry_date2 = document.getElementById("Expiry_date2").value;
-                const price2 = document.getElementById("price2").value;
-                const Quantity2= document.getElementById("Quantity2").value;
-                const price_offer2= document.getElementById("price_offer2").value;
-                fetch("https://testbyad.adaptable.app/material") 
-                .then(response => response.json())
-                .then(data => {
-                var id_material= null;
-               for (var i = 0; i < data.length; i++) {
-                 if (data[i].name_Material=== product2 ) {
-                    id_material= data[i]._id;
-                    break;
-                }
-               }
-               console.log(id_material+product2+Production_Date2+Expiry_date2+price2+Quantity2+price_offer2)
-                fetch(`https://testbyad.adaptable.app/material/${id_material}`, {
+         
+   document.getElementById("edit").addEventListener("click", function (event) {
+         event.preventDefault();
+       const product2 = document.getElementById("product2").value;
+       const Production_Date2 = document.getElementById("Production_Date2").value;
+       const Expiry_date2 = document.getElementById("Expiry_date2").value;
+       const price2 = document.getElementById("price2").value;
+       const Quantity2= document.getElementById("Quantity2").value;
+       const price_offer2= document.getElementById("price_offer2").value;
+
+    fetch("https://testbyad.adaptable.app/material") 
+        .then(response => response.json())
+        .then(data => {
+            var id_material = null;
+            for (var i = 0; i < data.length; i++) {
+            if (data[i].name_Material.trim() === product2.trim()) {
+              id_material = data[i]._id;
+              break;
+           }
+
+            }
+            if (id_material) {
+                console.log("Found id_material:", id_material);
+            } else {
+                console.log("Material not found for product:", product2);
+            }
+            return id_material;
+        })        
+        .then(id_material => {
+            if (id_material) {
+                return fetch(`https://testbyad.adaptable.app/material/${id_material}`, {
                     method: 'PATCH',
                     body: JSON.stringify({
                         name_Material: product2,
@@ -654,57 +665,24 @@
                     headers: {
                         'Content-type': 'application/json; charset=UTF-8'
                     }
-                })
-             })
-                    .then((response) => response.json())
-                    .then((json) => console.log(json));
-                //    setTimeout(() => {
-                //     window.location.reload();
-                // }, 2000);
-            });
-         
+                });
+            } else {
+                throw new Error("Material not found");
+            }
+        })
+        .then(response => response.json())
+        .then(json => {
+            console.log(json);
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000);
+           })
+          .catch(error => {
+            console.error('An error occurred:', error);
+          });
+        });
 
-        //  document.getElementById("edit").addEventListener("click", function (event) {
-        //         event.preventDefault();
-        //         const material2 = document.getElementById("product2").value;
-        //         const Production2 = document.getElementById("Production_Date2").value;
-        //         const Expiry2 = document.getElementById("Expiry_date2").value;
-        //         const price2 = document.getElementById("price2").value;
-        //         const Quant2 = document.getElementById("Quantity2").value;
-        //         const priceOffer2 = document.getElementById("price-offer2").value;
-        //         fetch("https://testbyad.adaptable.app/material") 
-        //         .then(response => response.json())
-        //         .then(data => {
-        //         var id_product2= null;
-        //        for (var i = 0; i < data.length; i++) {
-        //          if (data[i].name_Material=== material2 ) {
-        //             id_product2= data[i]._id;
-        //             break;
-        //         }
-        //        }
-        //         fetch(`https://testbyad.adaptable.app/material/${id_product2}`, {
-        //             method: 'PATCH',
-        //             body: JSON.stringify({
-        //                  name_Material: material2,
-        //                  Production_Date: Production2,
-        //                  Expiry_date: Expiry2,
-        //                  Quantity: Quant2,
-        //                  price: price2,
-        //                  price_offer:priceOffer2
-        //             }),
-        //             headers: {
-        //                 'Content-type': 'application/json; charset=UTF-8'
-        //             }
-        //         })
-        //      })
-        //             .then((response) => response.json())
-        //             .then((json) => console.log(json));
-        //            setTimeout(() => {
-        //             window.location.reload();
-        //         }, 2000);
-        //     });
-
-
+        
 
          document.getElementById("delete").addEventListener("click", function (event) {
                 event.preventDefault();
