@@ -4,6 +4,7 @@
 function toggleNightMode() {
     var ssss = document.getElementById('ss'); 
     var card = document.getElementById('card');
+    var cardimag = document.getElementById('img');
     var loginButton = document.getElementById('loginButton'); 
     var card_lab = document.querySelectorAll('.card_lab');
     var icon_arr = document.querySelectorAll('.icon_arr');
@@ -11,6 +12,7 @@ function toggleNightMode() {
     var checkbox = document.getElementById('checkbox');
     if (checkbox.checked) {
         ssss.classList.add('sNight');
+        cardimag.classList.add('imag');
         card.classList.add('cardNight');
         loginButton.classList.add('LabNight');
         for(var i=0;i<card_lab.length;i++) {
@@ -24,6 +26,7 @@ function toggleNightMode() {
         }
     } else {
         ssss.classList.remove('sNight');
+        cardimag.classList.remove('imag');
         card.classList.remove('cardNight');
         loginButton.classList.remove('LabNight');
         for(var i=0;i<card_lab.length;i++) {

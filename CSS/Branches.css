@@ -36,10 +36,13 @@ hr{
     justify-content: center;
     transition: 0.4s;
 }
-.card:hover{
+.card:hover .card_img:hover{
     transform: scale(1.1);
     background-color:var(--bgColor-2);
     border: 2px solid var(--primarycolor);
+}
+.card_img:hover{
+  transform: scale(1.1);
 }
 .text{
   position: relative;
@@ -219,6 +222,21 @@ margin-bottom: 180%;
 #analysis_existing{
   font-size: larger;
     padding: 18px;
+}
+.card_img{
+  position: relative;
+  width: 250px;
+  height: 200px;
+  box-shadow: 0 5px 25px rgba( 1 , 1 , 1 , 15%);
+  border-radius: 20%;
+  margin: 100px 0 95px 20px;
+  transition: 0.7s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(image/مخبركروة.jpg);
+  background-size: cover;
+
 }
 
 
@@ -408,10 +426,12 @@ margin-bottom: 180%;
     background-repeat: round;
     transition: background-image 0.5s;  
 }
+
 .cardNight {
     background:linear-gradient(45deg, black, #092455,black,#092455,black);
     transition: background-color 0.5s;
 }
+
 .LabNight{
   background-color: rgba(158, 0, 255, 0.4);
   color: white;
@@ -425,5 +445,9 @@ margin-bottom: 180%;
 }
 .licolor{
   color:white;
+}
+.imag{
+  background-image: url(image/night.jpg);
+  background-size: cover;
 }
 
