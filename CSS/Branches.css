@@ -36,10 +36,13 @@ hr{
     justify-content: center;
     transition: 0.4s;
 }
-.card:hover{
+.card:hover .card_img:hover{
     transform: scale(1.1);
     background-color:var(--bgColor-2);
     border: 2px solid var(--primarycolor);
+}
+.card_img:hover{
+  transform: scale(1.1);
 }
 .text{
   position: relative;
