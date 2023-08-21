@@ -189,90 +189,66 @@
                 </div>
 
             </div>
-            <div class="title-info">
-                <p>The amount of material available</p>
-                <i class="fas fa-table"></i>
             
-
-            </div>
-            <div>
-                <table id="tableMaterial">
-
-                    <thead>
-                        <tr>
-                            <th>اسم-المادة</th>
-                            <th>الكمية</th>
-                        </tr>
-                    </thead>
-                    <!-- <tbody>
-                        <tr>
-                            <td>ALBUMIN-BCG</td>
-                            <td>300g</td>
-                        </tr>
-                        <tr>
-                            <td>ALBUMIN-BCG</td>
-                            <td>100g</td>
-                        </tr>
-                    </tbody> -->
-                </table>
-
-            </div>
+           
         </section>
 
         <footer id="ft">
             <div class="footer-col">
-                <h4>
-                    prodacts
-                </h4>
-                <ul class="foot">
-                    <li class="footli"><a href="#">tempes</a></li>
-                    <li class="footli"><a href="#">advertising</a></li>
-                    <li class="footli"><a href="#">talent</a></li>
-                </ul>
+                    <h4>
+                            prodacts
+                    </h4>
+                    <ul class="foot">
+                            <li class="footli"><a href="#">tempes</a></li>
+                            <li class="footli"><a href="#">advertising</a></li>
+                            <li class="footli"><a href="#">talent</a></li>
+                    </ul>
 
             </div>
             <div class="footer-col">
-                <h4>
-                    networke
-                </h4>
-                <ul class="foot">
-                    <li class="footli"><a href="#">technologe</a></li>
-                    <li class="footli"><a href="#">science</a></li>
-                    <li class="footli"><a href="#">business</a></li>
-                </ul>
+                    <h4>
+                            networke
+                    </h4>
+                    <ul class="foot">
+                            <li class="footli"><a href="#">technologe</a></li>
+                            <li class="footli"><a href="#">science</a></li>
+                            <li class="footli"><a href="#">business</a></li>
+                    </ul>
 
             </div>
             <div class="footer-col">
-                <h4>
-                    company
-                </h4>
-                <ul class="foot">
-                    <li class="footli"><a href="#">about</a></li>
-                    <li class="footli"><a href="#">legal</a></li>
-                    <li class="footli"><a href="#">contact us</a></li>
-                </ul>
+                    <h4>
+                            company
+                    </h4>
+                    <ul class="foot">
+                            <li class="footli"><a href="#about">about</a></li>
+                            <li class="footli"><a href="">legal</a></li>
+                            <li class="footli"><a href="#prodacts">offer us</a></li>
+                    </ul>
 
             </div>
             <div class="footer-col">
-                <h4>
-                    follow us
-                </h4>
-                <div class="links">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                </div>
+                    <h4>
+                            follow us
+                    </h4>
+                    <div class="links">
+                            <a href="https://www.linkedin.com/in/mohammed-alfahel-097113282" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.twitter.com/"><i class="fab fa-twitter" target="_blank"></i></a>
+                            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp" target="_blank"></i></a>
+                    </div>
 
             </div>
-            <div class="p">
-                <p>© 2023 شركة ألفا للتحاليل الطبية. جميع الحقوق محفوظه</p>
+            <div class="fp">
+                    <p >© 2023 شركة ألفا للتحاليل الطبية. جميع الحقوق محفوظه
+                        <br>تأسست عام 2022
+                    </p>
             </div>
 
 
 
-        </footer>
+    </footer>
         <script>
             function toggle_show(index) {
                 var content = document.getElementById("loginWindow" + index);
@@ -389,20 +365,38 @@
             document.getElementById("login_butt4").addEventListener("click", function (event) {
                 event.preventDefault();
                 const material = document.getElementById("material").value;
+                const amount = document.getElementById("amount").value;
                 fetch("https://testbyad.adaptable.app/material")
                     .then(response => response.json())
                     .then(data => {
+                        quant = null;
                         pric = null;
                         id_material = null;
                         for (var i = 0; i < data.length; i++) {
                             if (data[i].name_Material === material) {
                                 id_material = data[i]._id;
                                 pric = data[i].price;
+                                quant = data[i].Quantity;
                                 break;
                             }
                         }
                     })
-                const amount = document.getElementById("amount").value;
+                 // update Quantity 
+                 const q = quant - amount;
+                 fetch(`https://testbyad.adaptable.app/material/${id_material}`,{
+                 method: 'PATCH',
+                    body: JSON.stringify({
+                        Quantity: q
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    }
+                })   
+                 .then(response => response.json())
+                 .then(data => {
+                 })
+
+
                 console.log(laboratory_Id);
                 if (id_material) {
                     const newOrder = {
