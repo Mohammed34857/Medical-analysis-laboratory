@@ -350,13 +350,18 @@
              .then(data => {
          data.forEach(order => {
             var order_date = new Date(order.order_date);
-            if(currentDate.getFullYear() === order_date.getFullYear()){
+            
+      if(currentDate.getFullYear() === order_date.getFullYear()){
+          var row = amountTable.insertRow(-1);
 
          laboratory_id = order.id_Laboratory ;
          fetch(`https://testbyad.adaptable.app/laboratory/${laboratory_id}`)
          .then(response => response.json())
              .then(data => {
                 nameLaboratory = data.name_laboratory;
+                 var name_laboratoryCell = row.insertCell(0);
+         name_laboratoryCell.innerHTML = `<td> <span class="namelaboratory"> ${nameLaboratory}</span></td>`;
+
 
          material_id = order.id_Material ;
          fetch(`https://testbyad.adaptable.app/material/${material_id}`)
@@ -364,11 +369,8 @@
              .then(data => {
                 nameMaterial = data.name_Material; 
                 
-         var row = amountTable.insertRow(-1);
 
-         var name_laboratoryCell = row.insertCell(0);
-         name_laboratoryCell.innerHTML = `<td> <span class="namelaboratory"> ${nameLaboratory}</span></td>`;
-
+        
          var name_MaterialCell = row.insertCell(1);
          name_MaterialCell.innerHTML = `<td> <span class="namematerial"> ${nameMaterial}</span></td>`;
 
